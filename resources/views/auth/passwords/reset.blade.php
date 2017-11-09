@@ -11,7 +11,7 @@
 
 <head>
     <meta charset="utf-8"/>
-    <title>Login</title>
+    <title>Reset</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1" name="viewport"/>
     <meta content="" name="description"/>
@@ -54,43 +54,61 @@
 <!-- BEGIN LOGIN -->
 <div class="content overlay">
 
-    <!-- BEGIN LOGIN FORM -->
-
-    <form action="{!! route('web.do.login') !!}" method="POST" id="login-form">
-        {!! csrf_field() !!}
-        <h3 class="form-title font-green">Sign In to {!! \App\BaseSettings\Settings::$company_name !!}</h3>
-        <div class="form-group">
-            <label for="email" class="control-label"></label>
-            <input type="text" name="email" class="form-control form-control-solid" value="{!! old('email') !!}" placeholder="Email-Address"  required/>
-        </div>
-        <div class="form-group">
-            <label for="password" class="control-label visible-ie8 visible-ie9">Password</label>
-            <input type="password" name="password" value="{!! old('password') !!}" class="form-control form-control-solid placeholder-no-fix" placeholder="Password" required/>
-        </div>
-        <div class="form-actions">
-            <input type="submit" name="submit" class="btn green uppercase" value="Login"/>
-            <a href="javascript:;" id="forget-password" class="forget-password">Forgot Password?</a>
-        </div>
-        {{--<div class="create-account">--}}
-        {{--<p>--}}
-        {{--<a href="{!! route('web.register') !!}" id="register-btn" class="uppercase">Create an account</a>--}}
-        {{--</p>--}}
-        {{--</div>--}}
-    </form>
-    <!-- END LOGIN FORM -->
-    <!-- BEGIN FORGOT PASSWORD FORM -->
-    <form class="forget-form" action="{{ route('password.email') }}" method="POST">
+    <form class="form-horizontal" method="POST" action="{{ route('password.request') }}">
         {{ csrf_field() }}
-        <h3 class="font-green">Forget Password ?</h3>
-        <p> Enter your e-mail address below to reset your password. </p>
+        <h3 class="form-title font-green">Password Reset || {!! \App\BaseSettings\Settings::$company_name !!}</h3>
+        <input type="hidden" name="token" value="{{ $token }}">
+
+        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+
+            <div class="col-md-8">
+                <input id="email" type="email" class="form-control" name="email" value="{{ $email or old('email') }}" required autofocus>
+
+                @if ($errors->has('email'))
+                    <span class="help-block">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                @endif
+            </div>
+        </div>
+
+        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+            <label for="password" class="col-md-4 control-label">Password</label>
+
+            <div class="col-md-8">
+                <input id="password" type="password" class="form-control" name="password" required>
+
+                @if ($errors->has('password'))
+                    <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                @endif
+            </div>
+        </div>
+
+        <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
+            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
+            <div class="col-md-8">
+                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+
+                @if ($errors->has('password_confirmation'))
+                    <span class="help-block">
+                                        <strong>{{ $errors->first('password_confirmation') }}</strong>
+                                    </span>
+                @endif
+            </div>
+        </div>
+
         <div class="form-group">
-            <input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Email" name="email" required> </div>
-        <div class="form-actions">
-            <button type="button" id="back-btn" class="btn green btn-outline">Back</button>
-            <button type="submit" class="btn btn-success uppercase pull-right">Send Password Reset Link</button>
+            <div class="col-md-6 col-md-offset-4">
+                <button type="submit" class="btn btn-primary">
+                    Reset Password
+                </button>
+            </div>
         </div>
     </form>
-    <!-- END FORGOT PASSWORD FORM -->
+
 </div>
 <div class="copyright"> {!! date('Y') !!} © {!! \App\BaseSettings\Settings::$company_name !!} </div>
 
@@ -102,15 +120,6 @@
     particlesJS.load('particle', '../assets/particles.json', function() {
         console.log('callback - particles.js config loaded');
     });
-    jQuery("#forget-password").click(function() {
-        jQuery("#login-form").hide();
-        jQuery(".forget-form").show();
-    });
-    jQuery("#back-btn").click(function() {
-        jQuery("#login-form").show();
-        jQuery(".forget-form").hide();
-    });
-
 </script>
 <!-- END CORE PLUGINS -->
 @include('partials.toastr')
