@@ -67,6 +67,43 @@ class UserRepository extends Repository
         $user->userInfo->photo = Settings::$upload_path . $fileName;
         $user->userInfo->save();
         return $user;
-         
+    }
+
+    /**
+     * @param $roleId
+     * @return mixed
+     */
+    public function findUserIDsWithParticularRole($roleId)
+    {
+        return $allUserId = DB::table("model_has_roles")->where('role_id', '=', $roleId)->pluck('model_id');
+    }
+
+    /**
+     * @param array $listOfId
+     * @param $recordPerPage
+     * @return TYPE_NAME
+     */
+    public function getAllUsersExceptSomeIDs($listOfId,$recordPerPage)
+    {
+        $users = $this->model->whereNotIn('id', $listOfId)->latest()->paginate($recordPerPage);
+        /** @var Array of Object $users */
+        return $users;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAllUsersWithAllRoles()
+    {
+        return $this->model->with('roles')->get();
+    }
+
+    /**
+     * @param $email
+     * @return bool
+     */
+    public function checkEmailExist($email)
+    {
+        return $this->model->where('email', $email)->first() ? true : false;
     }
 }

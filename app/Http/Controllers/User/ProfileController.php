@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Services\UserService;
 
 
-class UserController extends Controller
+class ProfileController extends Controller
 {
     private $userService;
 

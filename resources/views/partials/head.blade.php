@@ -2,10 +2,10 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>{!! \App\BaseSettings\Settings::$company_name !!}</title>
+    <title>@if(isset($title)) {!! $title.' - ' !!} @endif {!! \App\BaseSettings\Settings::$company_name !!}</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <meta content="Admin Bootstrap" name="description" />
+    <meta content="Admin Dashboard" name="description" />
     <meta content="" name="author" />
     @include('partials.styles')
 
