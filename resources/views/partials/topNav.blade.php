@@ -4,9 +4,10 @@
     <div class="page-header-inner ">
         <!-- BEGIN LOGO -->
         <div class="page-logo">
-            <a href="#">
+            {{--<h3 style="color: #f6f9fc">Admin Panel</h3>--}}
+            {{--<a href="#">--}}
                 {{--<img src="../assets/layouts/layout/img/logo.png" alt="logo" class="logo-default img-responsive" style="height: 45px; margin-top: 3px;" />--}}
-            </a>
+            {{--</a>--}}
             <div class="menu-toggler sidebar-toggler">
                 <span></span>
             </div>

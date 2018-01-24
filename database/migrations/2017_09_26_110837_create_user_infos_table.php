@@ -21,7 +21,7 @@ class CreateUserInfosTable extends Migration
 
             $table->string('name');
             $table->string('phone')->nullable();
-            $table->string('photo')->nullable();
+            $table->string('photo')->default('assets/img/propic.png');
             $table->text('about')->nullable();
             $table->string('occupation')->nullable();
 
