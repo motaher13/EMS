@@ -30,11 +30,32 @@ Route::group(['middleware' => ['auth']],function (){
     Route::get('dashboard',['as'=>'dashboard.main','uses'=>'Dashboard\MainDashboardController@dashboard']);
     Route::get('password-reset',['as' => 'profile.password.reset','uses' => 'Auth\AuthController@reset']);
     Route::post('password-reset',['as' => 'password.doReset','uses' => 'Auth\AuthController@doReset']);
-    Route::get('profile',['as' => 'profile','uses' => 'User\UserController@profile']);
-    Route::post('profile',['as' => 'profile.update','uses' => 'User\UserController@profileUpdate']);
-    Route::get('profile-pic-change',['as' => 'profile.pic.change','uses' => 'User\UserController@profilePicChange']);
-    Route::post('profile-pic-change',['as' => 'profile.pic.update','uses' => 'User\UserController@doProfilePicChange']);
+    Route::get('profile',['as' => 'profile','uses' => 'User\ProfileController@profile']);
+    Route::post('profile',['as' => 'profile.update','uses' => 'User\ProfileController@profileUpdate']);
+    Route::get('profile-pic-change',['as' => 'profile.pic.change','uses' => 'User\ProfileController@profilePicChange']);
+    Route::post('profile-pic-change',['as' => 'profile.pic.update','uses' => 'User\ProfileController@doProfilePicChange']);
     // laravel logs viewer
     Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+ * Testing phase only
+ * Strictly Prohibited For Productions
+ */
+Route::get('test/login/{id}', 'Auth\AuthController@loginUsingId')->name('test.login');

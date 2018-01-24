@@ -25,6 +25,7 @@ class CreateUserInfosTable extends Migration
             $table->text('about')->nullable();
             $table->string('occupation')->nullable();
 
+            $table->softDeletes();
             $table->timestamps();
         });
     }

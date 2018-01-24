@@ -26,7 +26,7 @@ class AuthController extends Controller
      * AuthController constructor.
      * @param WebAuthService $webAuthService
      */
-    public function __construct(WebAuthService $webAuthService)
+    public function __construct( WebAuthService $webAuthService )
     {
         $this->webAuthService = $webAuthService;
     }
@@ -37,7 +37,7 @@ class AuthController extends Controller
         return view('auth.login');
     }
 
-    public function doLogin(UserLogin $request)
+    public function doLogin( UserLogin $request )
     {
         $this->validateLogin($request);
 
@@ -54,7 +54,7 @@ class AuthController extends Controller
             $request->session()->regenerate();
             $this->clearLoginAttempts($request);
 
-            return redirect()->route('dashboard.main')->with('success','Welcome back!');
+            return redirect()->route('dashboard.main')->with('success', 'Welcome back!');
         }
 
         // If the login attempt was unsuccessful we will increment the number of attempts
@@ -62,7 +62,7 @@ class AuthController extends Controller
         // user surpasses their maximum number of attempts they will get locked out.
         $this->incrementLoginAttempts($request);
 
-        return redirect()->back()->withInput($request->all())->with('error','Invalid Email/Password.');
+        return redirect()->back()->withInput($request->all())->with('error', 'Invalid Email/Password.');
 
     }
 
@@ -71,11 +71,11 @@ class AuthController extends Controller
      */
     public function logout()
     {
-        if(Auth::check()){
+        if (Auth::check()) {
             Auth::logout();
-            return redirect()->route('login')->with('success','You have now been signed out.');
+            return redirect()->route('login')->with('success', 'You have now been signed out.');
         }
-        return redirect()->route('login')->with('error','You need to login first.');
+        return redirect()->route('login')->with('error', 'You need to login first.');
     }
 
     public function register()
@@ -83,37 +83,51 @@ class AuthController extends Controller
         return view('auth.register');
     }
 
-    public function doRegister(UserRegistration $request)
+    public function doRegister( UserRegistration $request )
     {
-        try{
+        try {
             $user = $this->webAuthService->register($request);
-            if($user){
+            if ($user) {
                 Auth::login($user);
-                return redirect()->route('dashboard.main')->with('success','Welcome, Your account created successfully.');
+                return redirect()->route('dashboard.main')->with('success',
+                    'Welcome, Your account created successfully.');
             }
-        }catch (\Exception $exception){
-            return redirect()->back()->withInput()->with('error','something went wrong. Try again.');
+        } catch (\Exception $exception) {
+            return redirect()->back()->withInput()->with('error', 'something went wrong. Try again.');
         }
     }
 
     public function reset()
     {
-        return view('auth.password-reset')->with('user',Auth::user());
+        return view('auth.password-reset')->with('user', Auth::user());
     }
-    
 
-    public function doReset(Request $request)
+
+    public function doReset( Request $request )
     {
         $rules = [
             'password' => 'required|confirmed'
         ];
-        $this->validate($request,$rules);
+        $this->validate($request, $rules);
         $user = $this->webAuthService->resetPassword($request);
-        if($user){
-            return redirect()->back()->with('success','Password Updated Successfully');
+        if ($user) {
+            return redirect()->back()->with('success', 'Password Updated Successfully');
         }
-        return redirect()->back()->with('error','Something went wrong. Try again.');
+        return redirect()->back()->with('error', 'Something went wrong. Try again.');
     }
 
-    
+    /**
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function loginUsingId( $id )
+    {
+        if (Auth::check()) {
+            Auth::logout();
+        }
+        \auth()->loginUsingId($id);
+        return redirect('dashboard');
+    }
+
+
 }
