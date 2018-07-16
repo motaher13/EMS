@@ -31,7 +31,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="btn-group pull-right">
-                                    <a class="btn sbold green" id="sample_editable_1_new" href="{{ route('user.create') }}" >Add New <i class="fa fa-plus"></i></a>
+                                    {{--<a class="btn sbold green" id="sample_editable_1_new" href="{{ route('user.create') }}" >Add New <i class="fa fa-plus"></i></a>--}}
 
                                     <!-- <button class="btn green  btn-outline dropdown-toggle" data-toggle="dropdown">Tools
                                     <i class="fa fa-angle-down"></i>

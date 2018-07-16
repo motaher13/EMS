@@ -74,4 +74,11 @@ class EmployeeController extends Controller
 
 
 
+
+   public function test(Request $request){
+       return $request->abul;
+   }
+
+
+
 }

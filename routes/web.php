@@ -119,11 +119,11 @@ Route::group(['middleware'=>['role:business']],function (){
 
 });
 
-//Route::get('/test',['as'=>'test','uses'=>'EmployeeController@test']);
+Route::get('/test',['as'=>'test','uses'=>'EmployeeController@test']);
 //Route::view('/test','test');
-Route::get('/test', function () {
-    return view('test');
-});
+//Route::get('/test', function () {
+//    return view('test');
+//});
 
 
     Route::get('/create', 'UploadController@create');
