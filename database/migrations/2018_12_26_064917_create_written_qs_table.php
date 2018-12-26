@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBusinessVerificationsTable extends Migration
+class CreateWrittenQsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class CreateBusinessVerificationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('business_verifications', function (Blueprint $table) {
+        Schema::create('written_qs', function (Blueprint $table) {
             $table->increments('id');
-
-            $table->integer('business_id')->unsigned()->nullable();
-            $table->foreign('business_id')->references('id')->on('businesses')
+            $table->integer('exam_id')->unsigned()->nullable();
+            $table->foreign('exam_id')->references('id')->on('exams')
                 ->onUpdate('cascade')->onDelete('cascade');
-
-            $table->string('code')->nullable();
+            $table->text('question')->nullable();
+            $table->string('picture')->nullable();
+            $table->integer('marks')->nullable();
             $table->timestamps();
         });
     }
@@ -32,6 +32,6 @@ class CreateBusinessVerificationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('business__verifications');
+        Schema::dropIfExists('written_qs');
     }
 }

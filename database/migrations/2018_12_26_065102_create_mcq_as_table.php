@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCourseCategoriesTable extends Migration
+class CreateMcqAsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class CreateCourseCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('course_categories', function (Blueprint $table) {
+        Schema::create('mcq_as', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->integer('answer_id')->unsigned()->nullable();
+            $table->foreign('answer_id')->references('id')->on('answers')
+                ->onUpdate('cascade')->onDelete('cascade');
+            $table->string('answer')->nullable();
             $table->timestamps();
         });
     }
@@ -27,6 +30,6 @@ class CreateCourseCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('course__categories');
+        Schema::dropIfExists('mcq_as');
     }
 }

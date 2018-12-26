@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCourseMaterialsTable extends Migration
+class CreateWrittenAsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,12 @@ class CreateCourseMaterialsTable extends Migration
      */
     public function up()
     {
-        Schema::create('course_materials', function (Blueprint $table) {
+        Schema::create('written_as', function (Blueprint $table) {
             $table->increments('id');
-
-            $table->integer('course_id')->unsigned()->nullable();
-            $table->foreign('course_id')->references('id')->on('courses')
+            $table->integer('answer_id')->unsigned()->nullable();
+            $table->foreign('answer_id')->references('id')->on('answers')
                 ->onUpdate('cascade')->onDelete('cascade');
-
-            $table->string('link')->nullable();
-            $table->string('type')->nullable();
-
+            $table->text('answer')->nullable();
             $table->timestamps();
         });
     }
@@ -34,6 +30,6 @@ class CreateCourseMaterialsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('course__materials');
+        Schema::dropIfExists('written_as');
     }
 }

@@ -20,8 +20,9 @@ class CreateUserInfosTable extends Migration
                 ->onUpdate('cascade')->onDelete('cascade');
 
             $table->string('name')->nullable();
-            $table->text('address')->nullable();
-            $table->string('phone')->nullable();
+            $table->string('role')->nullable();
+            $table->string('reg_no')->nullable();
+            $table->string('session')->nullable();
 
             $table->timestamps();
         });

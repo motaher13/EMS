@@ -15,21 +15,10 @@ class CreateCoursesTable extends Migration
     {
         Schema::create('courses', function (Blueprint $table) {
             $table->increments('id');
-
-            $table->integer('category_id')->unsigned()->nullable();
-            $table->foreign('category_id')->references('id')->on('course_categories')
+            $table->string('course_code');
+            $table->integer('teacher_id')->unsigned()->nullable();
+            $table->foreign('teacher_id')->references('id')->on('users')
                 ->onUpdate('cascade')->onDelete('cascade');
-
-            $table->integer('tutor_id')->unsigned()->nullable();
-            $table->foreign('tutor_id')->references('id')->on('users')
-                ->onUpdate('cascade')->onDelete('cascade');
-
-            $table->string('title')->nullable();
-            $table->text('short_description')->nullable();
-            $table->text('long_description')->nullable();
-            $table->string('length')->nullable();
-            $table->string('type')->nullable();
-
 
             $table->timestamps();
         });

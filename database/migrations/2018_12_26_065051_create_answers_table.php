@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBusinessEmployeesTable extends Migration
+class CreateAnswersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,15 @@ class CreateBusinessEmployeesTable extends Migration
      */
     public function up()
     {
-        Schema::create('business_employees', function (Blueprint $table) {
+        Schema::create('answers', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('business_id')->unsigned()->nullable();
-            $table->foreign('business_id')->references('id')->on('businesses')
+            $table->integer('student_id')->unsigned()->nullable();
+            $table->foreign('student_id')->references('id')->on('users')
                 ->onUpdate('cascade')->onDelete('cascade');
-
-            $table->integer('user_id')->unsigned()->nullable();
-            $table->foreign('user_id')->references('id')->on('users')
+            $table->integer('exam_id')->unsigned()->nullable();
+            $table->foreign('exam_id')->references('id')->on('exams')
                 ->onUpdate('cascade')->onDelete('cascade');
-
+            $table->integer('marks')->nullable();
             $table->timestamps();
         });
     }
@@ -34,6 +33,6 @@ class CreateBusinessEmployeesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('business__employees');
+        Schema::dropIfExists('answers');
     }
 }

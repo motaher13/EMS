@@ -16,7 +16,10 @@ class AssignRoleSeeder extends Seeder
         $admin = User::find(1);
         $admin->assignRole(Settings::$admin_role);
 
-        $client = User::find(2);
-        $client->assignRole('selfteach');
+        $teacher = User::find(2);
+        $teacher->assignRole('teacher');
+
+        $teacher = User::find(3);
+        $teacher->assignRole('student');
     }
 }
