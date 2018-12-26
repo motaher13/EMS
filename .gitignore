@@ -19,3 +19,5 @@ yarn.lock
 #Minfied File
 public/js/app.js
 public/css/app.css
+public/images
+public/uploads
