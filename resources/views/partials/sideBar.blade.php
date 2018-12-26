@@ -72,29 +72,29 @@
             @endif
 
 
-            <li class="nav-item {!! Menu::areActiveRoutes(['course.basic','course.scheduled']) !!}">
-                <a href="#" class="nav-link nav-toggle">
-                    <i class="icon-folder"></i>
-                    <span class="title">Course List</span>
-                    <span class="arrow"></span>
-                </a>
-                <ul class="sub-menu">
-                    <li class="nav-item {!! Menu::isActiveRoute('course.basic') !!}">
-                        <a href="{!! route('course.basic') !!}" class="nav-link ">
-                            <span class="title">Static Course</span>
-                        </a>
-                    </li>
-                    <li class="nav-item {!! Menu::isActiveRoute('course.scheduled') !!}">
-                        <a href="{!! route('course.scheduled') !!}" class="nav-link ">
-                            <span class="title">Scheduled Course</span>
-                        </a>
-                    </li>
-                </ul>
+            {{--<li class="nav-item {!! Menu::areActiveRoutes(['course.basic','course.scheduled']) !!}">--}}
+                {{--<a href="#" class="nav-link nav-toggle">--}}
+                    {{--<i class="icon-folder"></i>--}}
+                    {{--<span class="title">Course List</span>--}}
+                    {{--<span class="arrow"></span>--}}
+                {{--</a>--}}
+                {{--<ul class="sub-menu">--}}
+                    {{--<li class="nav-item {!! Menu::isActiveRoute('course.basic') !!}">--}}
+                        {{--<a href="{!! route('course.basic') !!}" class="nav-link ">--}}
+                            {{--<span class="title">Static Course</span>--}}
+                        {{--</a>--}}
+                    {{--</li>--}}
+                    {{--<li class="nav-item {!! Menu::isActiveRoute('course.scheduled') !!}">--}}
+                        {{--<a href="{!! route('course.scheduled') !!}" class="nav-link ">--}}
+                            {{--<span class="title">Scheduled Course</span>--}}
+                        {{--</a>--}}
+                    {{--</li>--}}
+                {{--</ul>--}}
 
-            </li>
+            {{--</li>--}}
 
 
-            @if(auth()->user()->hasRole('tutor'))
+            @if(auth()->user()->hasRole('teacher'))
                 <li class="nav-item {!! Menu::isActiveRoute('course.create') !!}">
                     <a href="{!! route('course.create') !!}" class="nav-link ">
                         <i class="icon-folder"></i>
@@ -111,27 +111,25 @@
                     </a>
                 </li>
 
-            @endif
-
-            @if(auth()->user()->hasRole('selfteach') || auth()->user()->hasRole('employee'))
-                <li class="nav-item {!! Menu::isActiveRoute('course.enrolled') !!}">
-                    <a href="{!! route('course.enrolled') !!}" class="nav-link ">
+                <li class="nav-item {!! Menu::isActiveRoute('exam.create') !!}">
+                    <a href="{!! route('exam.create') !!}" class="nav-link ">
                         <i class="icon-folder"></i>
-                        <span class="title">Enrolled Courses</span>
+                        <span class="title">Create Exam</span>
 
                     </a>
                 </li>
-            @endif
 
-            @if(auth()->user()->hasRole('business'))
-                <li class="nav-item {!! Menu::isActiveRoute('course.employee') !!}">
-                    <a href="{!! route('employee.list') !!}" class="nav-link ">
+                <li class="nav-item {!! Menu::isActiveRoute('exam.created') !!}">
+                    <a href="{!! route('exam.created') !!}" class="nav-link ">
                         <i class="icon-folder"></i>
-                        <span class="title">Employees</span>
+                        <span class="title">Created Exam</span>
 
                     </a>
                 </li>
+
             @endif
+
+
 
         </ul>
         <!-- END SIDEBAR MENU -->

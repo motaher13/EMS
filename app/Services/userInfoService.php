@@ -48,7 +48,7 @@ class userInfoService extends BaseService
     public function storeInfo($id,Request $request)
     {
 
-        $data=$request->only(['name','address','phone']);
+        $data=$request->only(['role','reg_no','session']);
         $data['user_id']=$id;
         //return $data;
         $userInfo =  $this->create($data);

@@ -95,7 +95,7 @@
 
                                             <div class="form-group">
                                                 <label class="control-label">Name</label>
-                                                <input type="text" value="{{$user->userInfo->name}}" name="name" class="form-control" />
+                                                <input type="text" value="{{$user->username}}" name="name" class="form-control" />
                                             </div>
 
                                             <div class="form-group">
@@ -103,42 +103,42 @@
                                                 <input type="email" value="{{$user->email}}" name="email" class="form-control" />
                                             </div>
 
-                                            <div class="form-group">
-                                                <label class="control-label">Mobile Number</label>
-                                                @if(isset($user->userInfo->phone))
-                                                    <input type="text" value="{{$user->userInfo->phone}}" name="phone" placeholder="+1 646 580 DEMO (6284)" class="form-control" />
-                                                @else
-                                                    <input type="text" placeholder="" name="phone" class="form-control" />
-                                                @endif
-                                            </div>
+                                            {{--<div class="form-group">--}}
+                                                {{--<label class="control-label">Mobile Number</label>--}}
+                                                {{--@if(isset($user->userInfo->phone))--}}
+                                                    {{--<input type="text" value="{{$user->userInfo->phone}}" name="phone" placeholder="+1 646 580 DEMO (6284)" class="form-control" />--}}
+                                                {{--@else--}}
+                                                    {{--<input type="text" placeholder="" name="phone" class="form-control" />--}}
+                                                {{--@endif--}}
+                                            {{--</div>--}}
 
 
-                                            <div class="form-group">
-                                                <label class="control-label">degree</label>
-                                                @if(isset($user->education->degree_name))
-                                                    <input type="text" value="{{$user->education->degree_name}}" name="degree_name" placeholder="+1 646 580 DEMO (6284)" class="form-control" />
-                                                @else
-                                                    <input type="text" placeholder="" name="degree_name" class="form-control" />
-                                                @endif
-                                            </div>
+                                            {{--<div class="form-group">--}}
+                                                {{--<label class="control-label">degree</label>--}}
+                                                {{--@if(isset($user->education->degree_name))--}}
+                                                    {{--<input type="text" value="{{$user->education->degree_name}}" name="degree_name" placeholder="+1 646 580 DEMO (6284)" class="form-control" />--}}
+                                                {{--@else--}}
+                                                    {{--<input type="text" placeholder="" name="degree_name" class="form-control" />--}}
+                                                {{--@endif--}}
+                                            {{--</div>--}}
 
-                                            <div class="form-group">
-                                                <label class="control-label">Institution</label>
-                                                @if(isset($user->education->institution))
-                                                    <input type="text" value="{{$user->education->institution}}" name="institution" placeholder="+1 646 580 DEMO (6284)" class="form-control" />
-                                                @else
-                                                    <input type="text" placeholder="" name="institution" class="form-control" />
-                                                @endif
-                                            </div>
+                                            {{--<div class="form-group">--}}
+                                                {{--<label class="control-label">Institution</label>--}}
+                                                {{--@if(isset($user->education->institution))--}}
+                                                    {{--<input type="text" value="{{$user->education->institution}}" name="institution" placeholder="+1 646 580 DEMO (6284)" class="form-control" />--}}
+                                                {{--@else--}}
+                                                    {{--<input type="text" placeholder="" name="institution" class="form-control" />--}}
+                                                {{--@endif--}}
+                                            {{--</div>--}}
 
-                                            <div class="form-group">
-                                                <label class="control-label">Session</label>
-                                                @if(isset($user->education->session))
-                                                    <input type="text" value="{{$user->education->session}}" name="session" placeholder="+1 646 580 DEMO (6284)" class="form-control" />
-                                                @else
-                                                    <input type="text" placeholder="" name="session" class="form-control" />
-                                                @endif
-                                            </div>
+                                            {{--<div class="form-group">--}}
+                                                {{--<label class="control-label">Session</label>--}}
+                                                {{--@if(isset($user->education->session))--}}
+                                                    {{--<input type="text" value="{{$user->education->session}}" name="session" placeholder="+1 646 580 DEMO (6284)" class="form-control" />--}}
+                                                {{--@else--}}
+                                                    {{--<input type="text" placeholder="" name="session" class="form-control" />--}}
+                                                {{--@endif--}}
+                                            {{--</div>--}}
 
 
 

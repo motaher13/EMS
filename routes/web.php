@@ -57,8 +57,14 @@ Route::group(['middleware' => ['auth']],function (){
 Route::group(['middleware' => ['role:teacher']],function (){
     Route::get('course/create',['as'=>'course.create','uses'=>'CourseController@create']);
     Route::post('course/create',['as'=>'course.create','uses'=>'CourseController@store']);
+    Route::get('course/created',['as'=>'course.created','uses'=>'CourseController@showCreated']);
 
-
+    Route::get('exam/create',['as'=>'exam.create','uses'=>'ExamController@create']);
+    Route::post('exam/create',['as'=>'exam.create','uses'=>'ExamController@store']);
+    Route::get('exam/created',['as'=>'exam.created','uses'=>'ExamController@showCreated']);
+    Route::get('exam/edit/{id}',['as'=>'exam.edit','uses'=>'ExamController@showCreated']);
+    Route::get('exam/add-mcq',['as'=>'exam.add-mcqq','uses'=>'ExamController@showCreated']);
+    Route::get('exam/add-writtenq',['as'=>'exam.add-writtenq','uses'=>'ExamController@showCreated']);
 
 
 });

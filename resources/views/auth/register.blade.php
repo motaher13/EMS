@@ -65,43 +65,36 @@
         <h3 class="font-green">Sign Up</h3>
         <p class="hint"> Enter your account details below: </p>
 
-        <div class="form-group">
-            <label for="username" class="control-label visible-ie8 visible-ie9">UserName</label>
-            <input type="text" name="username" class="form-control form-control-solid placeholder-no-fix" value="{!! old('username') !!}" placeholder="Username"  required/>
-        </div>
 
         <div class="form-group">
-            <label for="name" class="control-label visible-ie8 visible-ie9">Name</label>
-            <input type="text" name="name" class="form-control form-control-solid placeholder-no-fix" value="{!! old('name') !!}" placeholder="Name"  required/>
+            <label for="username" class="control-label visible-ie8 visible-ie9">Name</label>
+            <input type="text" name="username" class="form-control form-control-solid placeholder-no-fix" value="{!! old('username') !!}" placeholder="username"  required/>
         </div>
 
 
         <div class="form-group">
             <label for="email" class="control-label visible-ie8 visible-ie9">E-Mail</label>
-            <input type="text" name="email" class="form-control form-control-solid placeholder-no-fix" value="{!! old('email') !!}" placeholder="Email-Address"   required/>
+            <input type="email" name="email" class="form-control form-control-solid placeholder-no-fix" value="{!! old('email') !!}" placeholder="Email-Address"   required/>
         </div>
 
         <div class="form-group">
-            <label for="address" class="control-label visible-ie8 visible-ie9">Address</label>
-            <input type="text" name="address" class="form-control form-control-solid placeholder-no-fix" value="{!! old('address') !!}" placeholder="Address"  required/>
-        </div>
-
-        <div class="form-group">
-            <label for="phone" class="control-label visible-ie8 visible-ie9">Phone</label>
-            <input type="text" name="phone" class="form-control form-control-solid placeholder-no-fix" value="{!! old('phone') !!}" placeholder="Phone"  required/>
-        </div>
-
-        <div class="form-group">
-            <label for="role" class="control-label visible-ie8 visible-ie9">Choose Account Type</label>
+            <label for="role" class="control-label visible-ie8 visible-ie9">Choose Role</label>
             <select name="role" id="role" class="form-control ">
-                <option selected disabled hidden>Choose here</option>
-                <option value="1" selected>Business</option>
-                <option value="2">Employee</option>
-                <option value="3">Self-Training</option>
-                <option value="4">Tutor</option>
+                <option selected disabled hidden>Choose Role</option>
+                <option value="teacher" >Teacher</option>
+                <option value="student">Student</option>
             </select>
         </div>
 
+        <div class="form-group hidden hid">
+            <label for="reg_no" class="control-label visible-ie8 visible-ie9">RegNO</label>
+            <input type="text" name="reg_no" class="form-control form-control-solid placeholder-no-fix" placeholder="Reg NO" autocomplete="off"/>
+        </div>
+
+        <div class="form-group hidden hid">
+            <label for="session" class="control-label visible-ie8 visible-ie9">Session</label>
+            <input type="text" name="session" class="form-control form-control-solid placeholder-no-fix" placeholder="Session" autocomplete="off"/>
+        </div>
 
         <div class="form-group">
             <label for="password" class="control-label visible-ie8 visible-ie9">Password</label>
@@ -146,6 +139,34 @@
     particlesJS.load('particle', '../assets/particles.json', function() {
         console.log('callback - particles.js config loaded');
     });
+</script>
+
+<script>
+    $(document).ready(function(){
+
+//            $(".js-example-basic-single").select2();
+
+        $("#role").on('change', function() {
+
+            if($(this).val() == "teacher"){
+                $(".hid").addClass("hidden");
+                $(".hid").val(null);
+
+            }else if($(this).val() == "student"){
+                $(".hid").removeClass("hidden");
+
+            }else {
+                $(".hid").addClass("hidden");
+            }
+
+
+        });
+
+
+    });
+
+
+
 </script>
 <!-- END CORE PLUGINS -->
 @include('partials.toastr')

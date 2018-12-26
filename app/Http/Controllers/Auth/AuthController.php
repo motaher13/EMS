@@ -106,7 +106,7 @@ class AuthController extends Controller
 
                 if ($userInfo){
                     Auth::login($user);
-                    return redirect()->route('set.role',(int)$request->role);
+                    return redirect()->route('home');
                 }
             }
         }catch (\Exception $exception){

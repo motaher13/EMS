@@ -58,23 +58,15 @@ class WebAuthService
         $request->merge(['password' => $password]);
         $data = $request->only(['username','email','password']);
         $user =  $this->userService->create($data);
-
-        if($request->role==3 || $request->role==4){
-            $user->flag=0;
-        }
-        else{
-            $user->flag=(int)$request->role;
-        }
         $user->save();
 
-        if($user->flag==1)
-            $user->assignRole('business');
-        elseif ($user->flag==2)
-            $user->assignRole('employee');
-        elseif ($request->role==3)
-            $user->assignRole('selfteach');
-        elseif ($request->role==4)
-            $user->assignRole('tutor');
+        if($request->role=='teacher'){
+            $user->assignRole('teacher');
+        }
+        else{
+            $user->assignRole('student');
+        }
+
 
         return $user;
     }

@@ -18,6 +18,10 @@ class CreatePostsTable extends Migration
             $table->integer('course_id')->unsigned()->nullable();
             $table->foreign('course_id')->references('id')->on('courses')
                 ->onUpdate('cascade')->onDelete('cascade');
+
+            $table->integer('user_id')->unsigned()->nullable();
+            $table->foreign('user_id')->references('id')->on('users')
+                ->onUpdate('cascade')->onDelete('cascade');
             $table->text('post')->nullable();
             $table->timestamps();
         });

@@ -16,7 +16,7 @@
                         <div class="portlet-title tabbable-line">
                             <div class="caption caption-md">
                                 <i class="icon-globe theme-font hide"></i>
-                                <span class="caption-subject font-blue-madison bold uppercase">Created Courses</span>
+                                <span class="caption-subject font-blue-madison bold uppercase">Created Exams</span>
                             </div>
 
                         </div>
@@ -34,18 +34,20 @@
                                             <th> ID</th>
                                             <th> Title</th>
                                             <th> Course Code</th>
-                                            <th> Session</th>
+                                            <th> Start Time</th>
+                                            <th> End Time</th>
                                             <th> Actions</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        @if(count($courses))
-                                        @foreach($courses as $course)
+                                        @if(count($exams))
+                                        @foreach($exams as $exam)
                                             <tr class="odd gradeX">
-                                                <td> {{ $course->id }} </td>
-                                                <td> {{ $course->title }} </td>
-                                                <td> {{ $course->course_code }} </td>
-                                                <td> {{ $course->session }}</td>
+                                                <td> {{ $exam->id }} </td>
+                                                <td> {{ $exam->title }} </td>
+                                                <td> {{ $exam->course->course_code }} </td>
+                                                <td> {{ $exam->start }}</td>
+                                                <td> {{ $exam->end }}</td>
                                                 <td>
                                                     <div class="btn-group">
                                                         <button class="btn btn-xs green dropdown-toggle" type="button"
@@ -53,15 +55,26 @@
                                                             <i class="fa fa-angle-down"></i>
                                                         </button>
                                                         <ul class="dropdown-menu pull-left" role="menu">
-                                                            {{--<li>--}}
-                                                                {{--<a href="{!! route('course.delete', $course->id) !!}">--}}
-                                                                    {{--<i class="icon-docs"></i>Edit </a>--}}
-                                                            {{--</li>--}}
+                                                            @if(auth()->user()->id==$exam->course->teacher_id)
+                                                            <li>
+                                                                <a href="{!! route('exam.edit', $exam->id) !!}">
+                                                                    <i class="icon-docs"></i>Edit </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="{!! route('exam.add-mcqq', $exam->id) !!}">
+                                                                    <i class="icon-docs"></i>Add MCQ </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="{!! route('exam.add-writtenq', $exam->id) !!}">
+                                                                    <i class="icon-docs"></i>Add WrittenQ </a>
+                                                            </li>
+                                                            @endif
+
 
                                                             {{--<li>--}}
                                                                 {{--<a class="deleteBtn" href="#" data-toggle="modal"--}}
                                                                    {{--data-target="#deleteConfirm"--}}
-                                                                   {{--deleteUrl="{{ route('course.delete', $course->id) }}">--}}
+                                                                   {{--deleteUrl="{{ route('exam.delete', $exam->id) }}">--}}
                                                                     {{--<i class="icon-tag"></i> Delete </a>--}}
                                                             {{--</li>--}}
 
@@ -104,7 +117,7 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $('#dataTable').dataTable({
-                "order": [[1, "asc"]]
+                "order": [[0, "asc"]]
             });
             $(document).on("click", ".deleteBtn", function () {
                 var deleteUrl = $(this).attr('deleteUrl');

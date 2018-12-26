@@ -15,10 +15,12 @@ class CreateCoursesTable extends Migration
     {
         Schema::create('courses', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('title')->nullable();
             $table->string('course_code');
             $table->integer('teacher_id')->unsigned()->nullable();
             $table->foreign('teacher_id')->references('id')->on('users')
                 ->onUpdate('cascade')->onDelete('cascade');
+            $table->string('session')->nullable();
 
             $table->timestamps();
         });

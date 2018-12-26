@@ -16,17 +16,8 @@ class User extends Authenticatable implements JWTSubject
      *
      * @var array
      */
-    protected $fillable = [
-        'username', 'email', 'password',
-    ];
-
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password', 'remember_token',
+    protected $guarded = [
+        'id'
     ];
 
     /**
@@ -53,23 +44,15 @@ class User extends Authenticatable implements JWTSubject
         return $this->hasOne('App\Models\UserInfo', 'user_id', 'id');
     }
 
-    public function business(){
-        return $this->hasOne(Business::class,'owner_id','id');
-    }
-
-    public function business_employee(){
-        return $this->hasOne(BusinessEmployee::class,'user_id','id');
-    }
-
-    public function education(){
-        return $this->hasOne(Education::class,'user_id','id');
-    }
-
-    public function enrolled_student(){
-        return $this->hasMany(EnrolledStudent::class,'student_id','id');
-    }
-
     public function course(){
-        return $this->hasMany(Course::class,'tutor_id','id');
+        return $this->hasMany(Course::class,'teacher_id','id');
+    }
+
+    public function answer(){
+        return $this->hasMany(Answer::class,'user_id','id');
+    }
+
+    public function post(){
+        return $this->hasMany(Post::class,'user_id','id');
     }
 }

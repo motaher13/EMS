@@ -19,7 +19,7 @@
                         <div class="portlet-title tabbable-line">
                             <div class="caption caption-md">
                                 <i class="icon-globe theme-font hide"></i>
-                                <span class="caption-subject font-blue-madison bold uppercase">Provide Course Data</span>
+                                <span class="caption-subject font-blue-madison bold uppercase">Provide Exam Data</span>
                             </div>
 
                         </div>
@@ -29,9 +29,8 @@
                                 <div class="tab-pane active">
 
                                     <div class="container" style="margin-top: 20px; display: inline;">
-                                        <form method="POST" id="updateProfile" action="{{route('course.create')}}"accept-charset="UTF-8" class="cmxform form-horizontal tasi-form" enctype="multipart/form-data">
+                                        <form method="POST" id="updateProfile" action="{{route('exam.create')}}"accept-charset="UTF-8" class="cmxform form-horizontal tasi-form" enctype="multipart/form-data">
                                             {{ csrf_field() }}
-
 
                                             <div class="form-group">
                                                 <label for="title" class="control-label col-sm-2">Title</label>
@@ -43,14 +42,26 @@
                                             <div class="form-group">
                                                 <label for="course_code" class="control-label col-sm-2">Course Code</label>
                                                 <div class="col-sm-8">
-                                                    <input class="form-control" placeholder="Enter Course Code" name="course_code" type="text"  id="course_code">
+                                                    <select name="course_id" id="course"  class=" form-control">
+                                                        <option selected disabled hidden>Choose Course</option>
+                                                        @foreach($courses as $course)
+                                                            <option value={{$course->id}} >{{$course->course_code}}</option>
+                                                        @endforeach
+                                                    </select>
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="session" class="control-label col-sm-2">Session</label>
+                                                <label for="start" class="control-label col-sm-2">Start time</label>
                                                 <div class="col-sm-8">
-                                                    <input class="form-control" placeholder="Enter session" name="session" type="text"  id="session">
+                                                    <input class="form-control" placeholder="Enter start" name="start" type="datetime-local"  id="start">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="end" class="control-label col-sm-2">End time</label>
+                                                <div class="col-sm-8">
+                                                    <input class="form-control" placeholder="Enter end" name="end" type="datetime-local"  id="end">
                                                 </div>
                                             </div>
 
