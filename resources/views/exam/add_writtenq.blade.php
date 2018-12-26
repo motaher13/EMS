@@ -1,26 +1,41 @@
 @extends("layouts.app")
 
-
-
-@section('csrf')
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-@endsection
-
-
 @section('content')
-
-    <div class="row">
+    {{--<div class="container" style="text-align: center;margin-top: 30px;">--}}
+    {{--<div class="container" style="text-align: left;">--}}
+    {{--<h2>Create Course</h2>--}}
+    {{--</div>--}}
+    {{--</div>--}}
+    <div class="row" style="width: 95%;margin:auto;">
         <!-- END BEGIN PROFILE SIDEBAR -->
         <!-- BEGIN PROFILE CONTENT -->
         <div class="profile-content">
             <div class="row">
                 <div class="col-md-12">
-
                     <div class="portlet light ">
                         <div class="portlet-title tabbable-line">
-                            <div class="caption caption-md">
-                                <i class="icon-globe theme-font hide"></i>
-                                <span class="caption-subject font-blue-madison bold uppercase">Provide Exam Data</span>
+                            {{--<div class="caption caption-md">--}}
+                            {{--<i class="icon-globe theme-font hide"></i>--}}
+                            {{--<span class="caption-subject font-blue-madison bold uppercase">Provide MCQ Data</span>--}}
+                            {{--</div>--}}
+                            <div class="table-toolbar">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="caption caption-md">
+                                            <i class="icon-globe theme-font hide"></i>
+                                            <span class="caption-subject font-blue-madison bold uppercase">Provide MCQ Data</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="btn-group pull-right" style="margin-left: 5px;">
+                                            <a class="btn sbold green" id="sample_editable_1_new" href="{{ route('exam.created') }}" >Q Index </a>
+                                        </div>
+
+                                        <div class="btn-group pull-right">
+                                            <a class="btn sbold green" id="sample_editable_1_new" href="{{ route('exam.add-mcqq',$exam_id) }}" >Add MCQ<i class="fa fa-plus"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
                         </div>
@@ -30,39 +45,27 @@
                                 <div class="tab-pane active">
 
                                     <div class="container" style="margin-top: 20px; display: inline;">
-                                        <form method="POST" id="updateProfile" action="{{route('exam.create')}}"accept-charset="UTF-8" class="cmxform form-horizontal tasi-form" enctype="multipart/form-data">
+                                        <form method="POST" id="updateProfile" action="{{route('exam.add-mcqq',$exam_id)}}"accept-charset="UTF-8" class="cmxform form-horizontal tasi-form" enctype="multipart/form-data">
                                             {{ csrf_field() }}
 
                                             <div class="form-group">
-                                                <label for="title" class="control-label col-sm-2">Title</label>
+                                                <label for="question" class="control-label col-sm-2">Question</label>
                                                 <div class="col-sm-8">
-                                                    <input class="form-control" placeholder="Enter title" name="title" type="text"  id="title">
+                                                    <input class="form-control" placeholder="Enter question" name="question" type="text"  id="question">
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="course_code" class="control-label col-sm-2">Course Code</label>
+                                                <label for="marks" class="control-label col-sm-2">Marks</label>
                                                 <div class="col-sm-8">
-                                                    <select name="course_id" id="course"  class=" form-control">
-                                                        <option selected disabled hidden>Choose Course</option>
-                                                        @foreach($courses as $course)
-                                                            <option value={{$course->id}} >{{$course->course_code}}</option>
-                                                        @endforeach
-                                                    </select>
+                                                    <input class="form-control" placeholder="Enter marks" name="marks" type="number"  id="marks">
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="start" class="control-label col-sm-2">Start time</label>
+                                                <label for="picture" class="control-label col-sm-2">Picture</label>
                                                 <div class="col-sm-8">
-                                                    <input class="form-control" placeholder="Enter start" name="start" type="datetime-local"  id="start">
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label for="end" class="control-label col-sm-2">End time</label>
-                                                <div class="col-sm-8">
-                                                    <input class="form-control" placeholder="Enter end" name="end" type="datetime-local"  id="end">
+                                                    <input class="form-control" placeholder="Enter picture" name="picture" type="file"  id="picture">
                                                 </div>
                                             </div>
 
@@ -71,6 +74,8 @@
                                                     <input class="btn btn-success" type="submit" value="submit">
                                                 </div>
                                             </div>
+
+
 
                                         </form>
                                     </div>
@@ -104,3 +109,11 @@
 
 
 @endsection
+
+{{--@section('styles')--}}
+    {{--<link rel="stylesheet" href="{!! asset('assets/global/plugins/mdb/css/mdb.min.css') !!}">--}}
+{{--@endsection--}}
+
+{{--@section('scripts')--}}
+    {{--<script type="text/javascript" src="{!! asset('assets/global/plugins/mdb/js/popper.min.js') !!}"></script>--}}
+{{--@endsection--}}

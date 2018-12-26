@@ -63,8 +63,10 @@ Route::group(['middleware' => ['role:teacher']],function (){
     Route::post('exam/create',['as'=>'exam.create','uses'=>'ExamController@store']);
     Route::get('exam/created',['as'=>'exam.created','uses'=>'ExamController@showCreated']);
     Route::get('exam/edit/{id}',['as'=>'exam.edit','uses'=>'ExamController@showCreated']);
-    Route::get('exam/add-mcq',['as'=>'exam.add-mcqq','uses'=>'ExamController@showCreated']);
-    Route::get('exam/add-writtenq',['as'=>'exam.add-writtenq','uses'=>'ExamController@showCreated']);
+    Route::get('exam/add-mcqq/{id}',['as'=>'exam.add-mcqq','uses'=>'ExamController@addMcqQ']);
+    Route::post('exam/add-mcqq/{id}',['as'=>'exam.add-mcqq','uses'=>'ExamController@storeMcqQ']);
+    Route::get('exam/add-writtenq/{id}',['as'=>'exam.add-writtenq','uses'=>'ExamController@addWrittenQ']);
+    Route::post('exam/add-writtenq/{id}',['as'=>'exam.add-writtenq','uses'=>'ExamController@storeWrittenQ']);
 
 
 });
