@@ -1,4 +1,4 @@
-@extends('main')
+@extends('dropzone.main')
 
 @section('head')
     <link rel="stylesheet" href="{!! asset('assets/global/plugins/bootstrap/css/bootstrap.min.css') !!}">
@@ -10,7 +10,7 @@
     <script type="text/javascript" src="{!! asset('assets/global/plugins/dropzone/dropzone.min.js') !!}"></script>
     <script type="text/javascript" src="{!! asset('assets/global/plugins/jquery.min.js') !!}"></script>
 
-    <script src="{{ url('/js/dropzone-config.js') }}"></script>
+    <script src="{!! asset('assets/global/plugins/dropzone/dropzone-config.js') !!}"></script>
 @endsection
 
 @section('content')

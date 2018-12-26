@@ -120,6 +120,7 @@ Route::group(['middleware'=>['role:business']],function (){
 });
 
 Route::get('/test',['as'=>'test','uses'=>'EmployeeController@test']);
+Route::post('/checkthis',['as'=>'te','uses'=>'UserController@test']);
 //Route::view('/test','test');
 //Route::get('/test', function () {
 //    return view('test');

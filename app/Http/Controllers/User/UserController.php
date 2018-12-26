@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
 
@@ -139,5 +140,13 @@ class UserController extends Controller
             return redirect()->route('user.index')->with('success','Deletion Success');
         }
         return redirect()->back()->with('error','Something went wrong. Try again.');
+    }
+
+
+    public function test(Request $request){
+//        $user=User::where('name','t')->get();
+        $response = array('success' => true,'data'=>'abul');
+        return response()->json($response);
+
     }
 }

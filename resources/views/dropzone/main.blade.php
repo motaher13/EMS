@@ -7,7 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Uploading images in Laravel with DropZone</title>
 
-    <link rel="stylesheet" href="{{ url('/css/bootstrap.css') }}">
 
     @yield('head')
 </head>

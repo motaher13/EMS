@@ -34,7 +34,7 @@ class UploadController extends Controller
      */
     public function create()
     {
-        return view('upload');
+        return view('dropzone.upload');
     }
 
     /**
