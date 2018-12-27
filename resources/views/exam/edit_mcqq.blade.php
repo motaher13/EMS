@@ -30,10 +30,6 @@
                                         <div class="btn-group pull-right" style="margin-left: 5px;">
                                             <a class="btn sbold green" id="sample_editable_1_new" href="{{ route('exam.created') }}" >Q Index </a>
                                         </div>
-
-                                        <div class="btn-group pull-right">
-                                            <a class="btn sbold green" id="sample_editable_1_new" href="{{ route('exam.add-mcqq',$exam_id) }}" >Add MCQ<i class="fa fa-plus"></i></a>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -45,27 +41,60 @@
                                 <div class="tab-pane active">
 
                                     <div class="container" style="margin-top: 20px; display: inline;">
-                                        <form method="POST" id="updateProfile" action="{{route('exam.add-writtenq',$exam_id)}}"accept-charset="UTF-8" class="cmxform form-horizontal tasi-form" enctype="multipart/form-data">
+                                        <form method="POST" id="updateProfile" action="{{route('exam.edit-mcqq',$mcqq->id)}}"accept-charset="UTF-8" class="cmxform form-horizontal tasi-form" enctype="multipart/form-data">
                                             {{ csrf_field() }}
 
                                             <div class="form-group">
                                                 <label for="question" class="control-label col-sm-2">Question</label>
                                                 <div class="col-sm-8">
-                                                    <input class="form-control" placeholder="Enter question" name="question" type="text"  id="question">
+                                                    <input class="form-control" value={{$mcqq->question}} name="question" type="text"  id="question">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="option_a" class="control-label col-sm-2">Option A</label>
+                                                <div class="col-sm-8">
+                                                    <input class="form-control" value={{$mcqq->option_a}} name="option_a" type="text"  id="option_a">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="option_b" class="control-label col-sm-2">Option B</label>
+                                                <div class="col-sm-8">
+                                                    <input class="form-control" value={{$mcqq->option_b}} name="option_b" type="text"  id="option_b">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="option_c" class="control-label col-sm-2">Option C</label>
+                                                <div class="col-sm-8">
+                                                    <input class="form-control" value={{$mcqq->option_c}} name="option_c" type="text"  id="option_c">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="option_d" class="control-label col-sm-2">Option D</label>
+                                                <div class="col-sm-8">
+                                                    <input class="form-control" value={{$mcqq->option_d}} name="option_d" type="text"  id="option_d">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="title" class="control-label col-sm-2">Answer</label>
+                                                <div class="col-sm-8">
+                                                    <select name="answer" id="answer"  class="form-control">
+                                                        <option value="a" {{($mcqq->answer=='a')? "selected":"" }}>Option A</option>
+                                                        <option value="b" {{($mcqq->answer=='b')? "selected":"" }}>Option B</option>
+                                                        <option value="c" {{($mcqq->answer=='c')? "selected":"" }}>Option C</option>
+                                                        <option value="d" {{($mcqq->answer=='d')? "selected":"" }}>Option D</option>
+                                                    </select>
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="marks" class="control-label col-sm-2">Marks</label>
                                                 <div class="col-sm-8">
-                                                    <input class="form-control" placeholder="Enter marks" name="marks" type="number"  id="marks">
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label for="picture" class="control-label col-sm-2">Picture</label>
-                                                <div class="col-sm-8">
-                                                    <input class="form-control" placeholder="Enter picture" name="picture" type="file"  id="picture">
+                                                    <input class="form-control" value={{$mcqq->marks}} name="marks" type="number"  id="marks">
                                                 </div>
                                             </div>
 
@@ -74,8 +103,6 @@
                                                     <input class="btn btn-success" type="submit" value="submit">
                                                 </div>
                                             </div>
-
-
 
                                         </form>
                                     </div>
@@ -94,11 +121,3 @@
 
 
 @endsection
-
-{{--@section('styles')--}}
-    {{--<link rel="stylesheet" href="{!! asset('assets/global/plugins/mdb/css/mdb.min.css') !!}">--}}
-{{--@endsection--}}
-
-{{--@section('scripts')--}}
-    {{--<script type="text/javascript" src="{!! asset('assets/global/plugins/mdb/js/popper.min.js') !!}"></script>--}}
-{{--@endsection--}}

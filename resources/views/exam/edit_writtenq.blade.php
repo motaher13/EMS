@@ -23,16 +23,12 @@
                                     <div class="col-md-6">
                                         <div class="caption caption-md">
                                             <i class="icon-globe theme-font hide"></i>
-                                            <span class="caption-subject font-blue-madison bold uppercase">Provide MCQ Data</span>
+                                            <span class="caption-subject font-blue-madison bold uppercase">Provide Question Data</span>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="btn-group pull-right" style="margin-left: 5px;">
                                             <a class="btn sbold green" id="sample_editable_1_new" href="{{ route('exam.created') }}" >Q Index </a>
-                                        </div>
-
-                                        <div class="btn-group pull-right">
-                                            <a class="btn sbold green" id="sample_editable_1_new" href="{{ route('exam.add-mcqq',$exam_id) }}" >Add MCQ<i class="fa fa-plus"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -45,20 +41,20 @@
                                 <div class="tab-pane active">
 
                                     <div class="container" style="margin-top: 20px; display: inline;">
-                                        <form method="POST" id="updateProfile" action="{{route('exam.add-writtenq',$exam_id)}}"accept-charset="UTF-8" class="cmxform form-horizontal tasi-form" enctype="multipart/form-data">
+                                        <form method="POST" id="updateProfile" action="{{route('exam.edit-writtenq',$writtenq->id)}}"accept-charset="UTF-8" class="cmxform form-horizontal tasi-form" enctype="multipart/form-data">
                                             {{ csrf_field() }}
 
                                             <div class="form-group">
                                                 <label for="question" class="control-label col-sm-2">Question</label>
                                                 <div class="col-sm-8">
-                                                    <input class="form-control" placeholder="Enter question" name="question" type="text"  id="question">
+                                                    <input class="form-control" value={{$writtenq->question}} name="question" type="text"  id="question">
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="marks" class="control-label col-sm-2">Marks</label>
                                                 <div class="col-sm-8">
-                                                    <input class="form-control" placeholder="Enter marks" name="marks" type="number"  id="marks">
+                                                    <input class="form-control" value={{$writtenq->marks}} name="marks" type="number"  id="marks">
                                                 </div>
                                             </div>
 
@@ -96,9 +92,9 @@
 @endsection
 
 {{--@section('styles')--}}
-    {{--<link rel="stylesheet" href="{!! asset('assets/global/plugins/mdb/css/mdb.min.css') !!}">--}}
+{{--<link rel="stylesheet" href="{!! asset('assets/global/plugins/mdb/css/mdb.min.css') !!}">--}}
 {{--@endsection--}}
 
 {{--@section('scripts')--}}
-    {{--<script type="text/javascript" src="{!! asset('assets/global/plugins/mdb/js/popper.min.js') !!}"></script>--}}
+{{--<script type="text/javascript" src="{!! asset('assets/global/plugins/mdb/js/popper.min.js') !!}"></script>--}}
 {{--@endsection--}}

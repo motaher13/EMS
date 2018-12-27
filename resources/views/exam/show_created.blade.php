@@ -6,7 +6,7 @@
 
     <!-- BEGIN PAGE TITLE-->
 
-    <div class="row">
+    <div class="row" style="width: 95%;margin:auto;">
         <!-- END BEGIN PROFILE SIDEBAR -->
         <!-- BEGIN PROFILE CONTENT -->
         <div class="profile-content">
@@ -60,6 +60,11 @@
                                                                 <a href="{!! route('exam.edit', $exam->id) !!}">
                                                                     <i class="icon-docs"></i>Edit </a>
                                                             </li>
+                                                            <li>
+                                                                <a href="{!! route('exam.show', $exam->id) !!}">
+                                                                    <i class="icon-docs"></i>Show </a>
+                                                            </li>
+
                                                             <li>
                                                                 <a href="{!! route('exam.add-mcqq', $exam->id) !!}">
                                                                     <i class="icon-docs"></i>Add MCQ </a>

@@ -62,18 +62,36 @@ Route::group(['middleware' => ['role:teacher']],function (){
     Route::get('exam/create',['as'=>'exam.create','uses'=>'ExamController@create']);
     Route::post('exam/create',['as'=>'exam.create','uses'=>'ExamController@store']);
     Route::get('exam/created',['as'=>'exam.created','uses'=>'ExamController@showCreated']);
-    Route::get('exam/edit/{id}',['as'=>'exam.edit','uses'=>'ExamController@showCreated']);
+    Route::get('exam/show/{id}',['as'=>'exam.show','uses'=>'ExamController@show']);
+
     Route::get('exam/add-mcqq/{id}',['as'=>'exam.add-mcqq','uses'=>'ExamController@addMcqQ']);
     Route::post('exam/add-mcqq/{id}',['as'=>'exam.add-mcqq','uses'=>'ExamController@storeMcqQ']);
     Route::get('exam/add-writtenq/{id}',['as'=>'exam.add-writtenq','uses'=>'ExamController@addWrittenQ']);
     Route::post('exam/add-writtenq/{id}',['as'=>'exam.add-writtenq','uses'=>'ExamController@storeWrittenQ']);
 
 
+
+    Route::get('exam/edit/{id}',['as'=>'exam.edit','uses'=>'ExamController@edit']);
+    Route::post('exam/edit/{id}',['as'=>'exam.edit','uses'=>'ExamController@update']);
+
+    Route::get('exam/edit-mcqq/{id}',['as'=>'exam.edit-mcqq','uses'=>'ExamController@editMcqQ']);
+    Route::post('exam/edit-mcqq/{id}',['as'=>'exam.edit-mcqq','uses'=>'ExamController@updateMcqQ']);
+
+    Route::get('exam/edit-writtenq/{id}',['as'=>'exam.edit-writtenq','uses'=>'ExamController@editWrittenQ']);
+    Route::post('exam/edit-writtenq/{id}',['as'=>'exam.edit-writtenq','uses'=>'ExamController@updateWrittenQ']);
+
+    Route::get('exam/delete-mcqq/{id}',['as'=>'exam.delete-mcqq','uses'=>'ExamController@deleteMcqQ']);
+    Route::get('exam/delete-writtenq/{id}',['as'=>'exam.delete-writtenq','uses'=>'ExamController@deleteWrittenQ']);
+
 });
 
 Route::group(['middleware' => ['role:student']],function (){
 
+    Route::get('course',['as'=>'course.list','uses'=>'QuestionController@courseList']);
+    Route::get('course/questions',['as'=>'course.questions','uses'=>'QuestionController@list']);
 
+    Route::get('question/{id}',['as'=>'questions.show','uses'=>'QuestionController@show']);
+    
 
 
 });
@@ -83,7 +101,7 @@ Route::group(['middleware'=>['role:admin|tutor']],function (){
 });
 
 
-
+Route::get('/test','ExamController@test');
 
 
 
