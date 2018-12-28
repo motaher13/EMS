@@ -88,10 +88,14 @@ Route::group(['middleware' => ['role:teacher']],function (){
 Route::group(['middleware' => ['role:student']],function (){
 
     Route::get('course',['as'=>'course.list','uses'=>'QuestionController@courseList']);
-    Route::get('course/questions',['as'=>'course.questions','uses'=>'QuestionController@list']);
+    Route::get('course/questions/{course_code}',['as'=>'course.questions','uses'=>'QuestionController@list']);
+    Route::get('question/{id}',['as'=>'question.show','uses'=>'QuestionController@show']);
 
-    Route::get('question/{id}',['as'=>'questions.show','uses'=>'QuestionController@show']);
-    
+    Route::get('exams',['as'=>'exam.list','uses'=>'ExamTakeController@show']);
+    Route::get('exams',['as'=>'exam.list','uses'=>'ExamTakeController@show']);
+    Route::get('exams',['as'=>'exam.list','uses'=>'ExamTakeController@show']);
+
+
 
 
 });

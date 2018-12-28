@@ -133,7 +133,7 @@
                 <li class="nav-item {!! Menu::isActiveRoute('course.list') !!}">
                     <a href="{!! route('course.list') !!}" class="nav-link ">
                         <i class="icon-folder"></i>
-                        <span class="title">Create Course</span>
+                        <span class="title">Question Bank</span>
 
                     </a>
                 </li>

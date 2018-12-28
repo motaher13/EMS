@@ -26,9 +26,10 @@
                                             <span class="caption-subject font-blue-madison bold uppercase">{{$exam->title}}</span>
                                         </div>
                                     </div>
+
                                     <div class="col-md-6">
                                         <div class="btn-group pull-right" style="margin-left: 5px;">
-                                            <a class="btn sbold green" id="sample_editable_1_new" href="{{ route('exam.created') }}" >Q Index </a>
+                                            <a class="btn sbold green" id="sample_editable_1_new" href="{{ route('course.questions',$exam->course->course_code) }}" >Question List </a>
                                         </div>
 
                                     </div>
@@ -46,25 +47,19 @@
                                         @foreach($mcqqs as $mcqq)
                                                 <?php $i++ ?>
                                             <div >
-                                                <div class="btn-group pull-right" style="margin-left: 5px;">
-                                                    <a class="btn sbold green" href="{{ route('exam.edit-mcqq',$mcqq->id) }}" >Edit </a>
-                                                </div>
-                                                <div class="btn-group pull-right" style="margin-left: 5px;">
-                                                    <a class="btn sbold green" href="{{ route('exam.delete-mcqq',$mcqq->id) }}" >Delete </a>
-                                                </div>
                                                 <p class="pull-right" style="margin-right: 30px;">marks:{{$mcqq->marks}}</p>
                                                 <p style="margin-bottom: 0px;">{{$i}}. {{$mcqq->question}}</p>
                                                 <div class="radio">
-                                                    <label><input type="radio" value="a" name="{{$mcqq->id}}" {{($mcqq->answer=='a')? "checked":"" }}>Option A</label>
+                                                    <label><input type="radio" value="a" name="{{$mcqq->id}}" >Option A</label>
                                                 </div>
                                                 <div class="radio">
-                                                    <label><input type="radio" value="b" name="{{$mcqq->id}}" {{($mcqq->answer=='b')? "checked":"" }}>Option B</label>
+                                                    <label><input type="radio" value="b" name="{{$mcqq->id}}" >Option B</label>
                                                 </div>
                                                 <div class="radio disabled">
-                                                    <label><input type="radio" value="c" name="{{$mcqq->id}}" {{($mcqq->answer=='c')? "checked":"" }}>Option C</label>
+                                                    <label><input type="radio" value="c" name="{{$mcqq->id}}" >Option C</label>
                                                 </div>
                                                 <div class="radio disabled" style="margin-bottom: 30px;">
-                                                    <label><input type="radio" value="d" name="{{$mcqq->id}}" {{($mcqq->answer=='d')? "checked":"" }}>Option D</label>
+                                                    <label><input type="radio" value="d" name="{{$mcqq->id}}" >Option D</label>
                                                 </div>
                                             </div>
                                         @endforeach
@@ -76,12 +71,6 @@
                                         @foreach($writtenqs as $writtenq)
                                                 <?php $i++ ?>
                                             <div style="margin-bottom: 40px;">
-                                                <div class="btn-group pull-right" style="margin-left: 5px;">
-                                                    <a class="btn sbold green" href="{{ route('exam.edit-writtenq',$writtenq->id) }}" >Edit </a>
-                                                </div>
-                                                <div class="btn-group pull-right" style="margin-left: 5px;">
-                                                    <a class="btn sbold green" href="{{ route('exam.delete-writtenq',$writtenq->id) }}" >Delete </a>
-                                                </div>
                                                 <p class="pull-right" style="margin-right: 30px;">marks:{{$writtenq->marks}}</p>
                                                 <p style="margin-bottom: 0px;">{{$i}}. {{$writtenq->question}}</p>
                                                 <div style="margin:20px 10px;">
