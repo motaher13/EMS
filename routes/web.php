@@ -91,9 +91,9 @@ Route::group(['middleware' => ['role:student']],function (){
     Route::get('course/questions/{course_code}',['as'=>'course.questions','uses'=>'QuestionController@list']);
     Route::get('question/{id}',['as'=>'question.show','uses'=>'QuestionController@show']);
 
-    Route::get('exams',['as'=>'exam.list','uses'=>'ExamTakeController@show']);
-    Route::get('exams',['as'=>'exam.list','uses'=>'ExamTakeController@show']);
-    Route::get('exams',['as'=>'exam.list','uses'=>'ExamTakeController@show']);
+    Route::get('exam',['as'=>'exam.list','uses'=>'ExamTakeController@list']);
+    Route::get('exam/participate/{id}',['as'=>'exam.take','uses'=>'ExamTakeController@take']);
+    Route::post('exam/answer/{id}',['as'=>'exam.answer','uses'=>'ExamTakeController@storeAnswer']);
 
 
 

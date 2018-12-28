@@ -138,6 +138,14 @@
                     </a>
                 </li>
 
+                <li class="nav-item {!! Menu::isActiveRoute('exam.list') !!}">
+                    <a href="{!! route('exam.list') !!}" class="nav-link ">
+                        <i class="icon-folder"></i>
+                        <span class="title">Exams</span>
+
+                    </a>
+                </li>
+
             @endif
 
 

@@ -13,4 +13,8 @@ class WrittenA extends Model
     public function answer(){
         return $this->belongsTo(Answer::class, 'answer_id', 'id');
     }
+
+    public function writtenq(){
+        return $this->belongsTo(WrittenQ::class, 'writtenq_id', 'id');
+    }
 }
