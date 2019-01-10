@@ -1,21 +1,27 @@
-<!doctype html>
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    @include('front.partials.head')
-</head>
-<body>
-    @include('front.partials.header')
+<!--<![endif]-->
+@include('partials.head')
 
-    <div class="container" style="min-height: 76vh">
-        @yield('content')
+<body class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid page-content-white">
+<div class="page-wrapper">
+    @include('partials.topNav')
+    <div class="clearfix"> </div>
+    <div class="page-container">
+{{--        @include('partials.sideBar')--}}
+        <div class="page-content-wrapper">
+            <div class="page-content">
+                @yield('content')
+            </div>
+        </div>
     </div>
-    @include('front.partials.footer')
+    @include('partials.footer')
+</div>
 
-    @include('front.partials.scripts')
+@include('partials.scripts')
 </body>
+
 </html>

@@ -45,7 +45,7 @@
     <!-- END PAGE LEVEL STYLES -->
     <!-- BEGIN THEME LAYOUT STYLES -->
     <!-- END THEME LAYOUT STYLES -->
-    <link rel="shortcut icon" href="favicon.ico"/>
+    <link rel="shortcut icon" href="assets/global/plugins/egames/img/core-img/favicon.ico"/>
 </head>
 <!-- END HEAD -->
 

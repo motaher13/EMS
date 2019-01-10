@@ -40,6 +40,7 @@
             position: relative;
         }
     </style>
+    <link rel="shortcut icon" href="assets/global/plugins/egames/img/core-img/favicon.ico"/>
 </head>
 <!-- END HEAD -->
 

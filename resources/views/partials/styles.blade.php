@@ -13,6 +13,6 @@
 <link rel="stylesheet" href="{!! asset('assets/layouts/layout/css/layout.min.css') !!}">
 <link rel="stylesheet" href="{!! asset('assets/layouts/layout/css/themes/darkblue.min.css') !!}">
 <link rel="stylesheet" href="{!! asset('assets/layouts/layout/css/custom.min.css') !!}">
-<link rel="shortcut icon" href="favicon.ico" />
+<link rel="shortcut icon" href="assets/global/plugins/egames/img/core-img/favicon.ico" />
 @yield('styles')
 <!-- END THEME LAYOUT STYLES -->
