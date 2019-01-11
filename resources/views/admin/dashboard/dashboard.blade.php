@@ -545,7 +545,7 @@
 @endsection
 
 @section('styles')
-{{--    <link rel="stylesheet" href="{!! asset('assets/global/css/ckeditor.css') !!}">--}}
+
     <style>
         .media-meta {
             font-size: 11px;

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Answer;
+use App\Models\Course;
 use App\Models\Exam;
 use App\Models\McqA;
 use App\Models\McqQ;
@@ -60,4 +61,66 @@ class ExamTakeController extends Controller
 
         return redirect()->route('exam.list');
     }
+
+    public function examHeld()
+    {
+        $exams=Exam::where('teacher_id',auth()->user()->id)->where('end','<',date("Y-m-d H:i:s"))->get();
+        return view('exam_take.held-exam')->with('exams',$exams);
+    }
+
+
+    public function showSheetList($id)
+    {
+        $answers=Answer::where('exam_id',$id)->get();
+
+        return view('exam_take.sheet-list')->with('answers',$answers);
+    }
+
+    public function showSheet($id)
+    {
+        $answer=Answer::find($id);
+        $mcqas=McqA::where('answer_id',$id)->get();
+        $writtenas=WrittenA::where('answer_id',$id)->get();
+        return view('exam_take.sheet')->with('mcqas',$mcqas)->with('writtenas',$writtenas)->with('answer',$answer);
+    }
+
+    public function examine($id,Request $request)
+    {
+        $data=$request->except('_token');
+        $keys=array_keys($data);
+        $sum=0;
+
+        for($i=0;$i<sizeof($keys);$i++)
+        {
+            $str=$keys[$i];
+            $j=(int)$str;
+            $writtena=WrittenA::find($j);
+            $writtena->marks=$data[$str];
+            $sum+=$data[$str];
+            $writtena->save();
+
+        }
+        $mcqas=McqA::where('answer_id',$id)->get();
+        foreach ($mcqas as $mcqa)
+        {
+            if($mcqa->answer==$mcqa->mcqq->answer)
+                $sum+=$mcqa->mcqq->marks;
+        }
+
+        $answer=Answer::find($id);
+        $answer->marks=$sum;
+        $answer->save();
+
+    }
+
+
+
+
+
+    public function resultPersonal()
+    {
+        $answers=Answer::where('student_id',auth()->user()->id)->whereNotNull('marks')->get();
+        return view('result.personal')->with('answers',$answers);
+    }
+
 }

@@ -127,6 +127,16 @@
                     </a>
                 </li>
 
+                <li class="nav-item {!! Menu::isActiveRoute('exam.held') !!}">
+                    <a href="{!! route('exam.held') !!}" class="nav-link ">
+                        <i class="icon-folder"></i>
+                        <span class="title">Held Exams</span>
+
+                    </a>
+                </li>
+
+
+
             @endif
 
             @if(auth()->user()->hasRole('student'))
@@ -142,6 +152,14 @@
                     <a href="{!! route('exam.list') !!}" class="nav-link ">
                         <i class="icon-folder"></i>
                         <span class="title">Exams</span>
+
+                    </a>
+                </li>
+
+                <li class="nav-item {!! Menu::isActiveRoute('result.personal') !!}">
+                    <a href="{!! route('result.personal') !!}" class="nav-link ">
+                        <i class="icon-folder"></i>
+                        <span class="title">Results</span>
 
                     </a>
                 </li>

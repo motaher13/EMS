@@ -14,5 +14,6 @@
 <link rel="stylesheet" href="{!! asset('assets/layouts/layout/css/themes/darkblue.min.css') !!}">
 <link rel="stylesheet" href="{!! asset('assets/layouts/layout/css/custom.min.css') !!}">
 <link rel="shortcut icon" href="assets/global/plugins/egames/img/core-img/favicon.ico" />
+<link rel="stylesheet" href="{!! asset('assets/global/css/ckeditor.css') !!}">
 @yield('styles')
 <!-- END THEME LAYOUT STYLES -->

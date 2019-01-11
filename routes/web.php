@@ -83,6 +83,11 @@ Route::group(['middleware' => ['role:teacher']],function (){
     Route::get('exam/delete-mcqq/{id}',['as'=>'exam.delete-mcqq','uses'=>'ExamController@deleteMcqQ']);
     Route::get('exam/delete-writtenq/{id}',['as'=>'exam.delete-writtenq','uses'=>'ExamController@deleteWrittenQ']);
 
+    Route::get('exam/held',['as'=>'exam.held','uses'=>'ExamTakeController@examHeld']);
+    Route::get('exam/sheet/list/{id}',['as'=>'exam.sheetList','uses'=>'ExamTakeController@showSheetList']);
+    Route::get('exam/sheet/{id}',['as'=>'exam.sheet','uses'=>'ExamTakeController@showSheet']);
+    Route::post('exam/sheet/{id}',['as'=>'exam.examine','uses'=>'ExamTakeController@examine']);
+
 });
 
 Route::group(['middleware' => ['role:student']],function (){
@@ -96,7 +101,7 @@ Route::group(['middleware' => ['role:student']],function (){
     Route::post('exam/answer/{id}',['as'=>'exam.answer','uses'=>'ExamTakeController@storeAnswer']);
 
 
-
+    Route::get('result/personal',['as'=>'result.personal','uses'=>'ExamTakeController@resultPersonal']);
 
 });
 

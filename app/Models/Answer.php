@@ -14,8 +14,8 @@ class Answer extends Model
         return $this->belongsTo(Exam::class, 'exam_id', 'id');
     }
 
-    public function user(){
-        return $this->belongsTo(User::class, 'user_id', 'id');
+    public function student(){
+        return $this->belongsTo(User::class, 'student_id', 'id');
     }
 
     public function mcqA(){
