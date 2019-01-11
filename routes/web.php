@@ -105,7 +105,9 @@ Route::group(['middleware'=>['role:admin|tutor']],function (){
 });
 
 
-Route::get('/test','ExamController@test');
+Route::get('/test',function(){
+    return view('test');
+});
 
 
 
