@@ -43,30 +43,23 @@
                                     <div class="table-responsive">
                                         <table class="table table-striped table-hover">
                                             <tbody >
-                                            @if($answers->count()==0)
-                                                <div >
-                                                    <hr>
-                                                  <h1 style="font-size: 22px; font-weight: bold;">ALL answer papers has been examined.</h1>
-                                                </div>
-                                            @else
-                                            @foreach($answers as $answer)
-                                                <tr class='clickable-row' data-href='{{route('exam.sheet',$answer->id)}}'>
+                                            @foreach($exams as $exam)
+                                                <tr class='clickable-row' data-href='{{route('result.batch',$exam->id)}}'>
                                                     <td>
                                                         <div class="media">
                                                             <div class="media-body">
-                                                                <span class="media-meta pull-right">{{$answer->student->id}}</span>
+                                                                <span class="media-meta pull-right">{{$exam->start}}</span>
                                                                 <h4 class="title">
-                                                                    {{$answer->student->userinfo->reg_no}}
-                                                                    <span class="pull-right pagado">{{$answer->exam->course->course_code}}</span>
+                                                                    {{$exam->title}}
+                                                                    <span class="pull-right pagado">{{$exam->course->course_code}}</span>
                                                                 </h4>
-                                                                <span class="media-meta pull-right">{{$answer->end}}</span>
-                                                                <p class="summary">{{$answer->exam->course->title}}</p>
+                                                                <span class="media-meta pull-right">{{$exam->end}}</span>
+                                                                <p class="summary">{{$exam->course->title}}</p>
                                                             </div>
                                                         </div>
                                                     </td>
                                                 </tr>
                                             @endforeach
-                                            @endif
                                             </tbody>
                                         </table>
                                     </div>
@@ -126,5 +119,3 @@
     </style>
 
 @endsection
-
-{{--color: #2BBCDE; font-size: 18px; font-weight: bold;--}}

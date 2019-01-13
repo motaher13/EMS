@@ -26,12 +26,12 @@
                                             <span class="caption-subject font-blue-madison bold uppercase">Courses</span>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="btn-group pull-right" style="margin-left: 5px;">
-                                            <a class="btn sbold green" id="sample_editable_1_new" href="{{ route('exam.created') }}" >Q Index </a>
-                                        </div>
+                                    {{--<div class="col-md-6">--}}
+                                        {{--<div class="btn-group pull-right" style="margin-left: 5px;">--}}
+                                            {{--<a class="btn sbold green" id="sample_editable_1_new" href="{{ route('exam.created') }}" >Q Index </a>--}}
+                                        {{--</div>--}}
 
-                                    </div>
+                                    {{--</div>--}}
                                 </div>
                             </div>
 

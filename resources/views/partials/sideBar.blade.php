@@ -103,13 +103,13 @@
                     </a>
                 </li>
 
-                <li class="nav-item {!! Menu::isActiveRoute('course.created') !!}">
-                    <a href="{!! route('course.created') !!}" class="nav-link ">
-                        <i class="icon-folder"></i>
-                        <span class="title">Created Courses</span>
+                {{--<li class="nav-item {!! Menu::isActiveRoute('course.created') !!}">--}}
+                    {{--<a href="{!! route('course.created') !!}" class="nav-link ">--}}
+                        {{--<i class="icon-folder"></i>--}}
+                        {{--<span class="title">Created Courses</span>--}}
 
-                    </a>
-                </li>
+                    {{--</a>--}}
+                {{--</li>--}}
 
                 <li class="nav-item {!! Menu::isActiveRoute('exam.create') !!}">
                     <a href="{!! route('exam.create') !!}" class="nav-link ">
@@ -131,6 +131,15 @@
                     <a href="{!! route('exam.held') !!}" class="nav-link ">
                         <i class="icon-folder"></i>
                         <span class="title">Held Exams</span>
+
+                    </a>
+                </li>
+
+
+                <li class="nav-item {!! Menu::isActiveRoute('result.examined') !!}">
+                    <a href="{!! route('result.examined') !!}" class="nav-link ">
+                        <i class="icon-folder"></i>
+                        <span class="title">Results</span>
 
                     </a>
                 </li>

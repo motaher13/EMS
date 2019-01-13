@@ -23,7 +23,7 @@
                                 <div class="col-md-6">
                                     <div class="caption caption-md">
                                         <i class="icon-globe theme-font hide"></i>
-                                        <span class="caption-subject font-blue-madison bold uppercase">Exams</span>
+                                        <span class="caption-subject font-blue-madison bold uppercase">Results</span>
                                     </div>
                                 </div>
                                 {{--<div class="col-md-6">--}}
@@ -43,30 +43,23 @@
                                     <div class="table-responsive">
                                         <table class="table table-striped table-hover">
                                             <tbody >
-                                            @if($answers->count()==0)
-                                                <div >
-                                                    <hr>
-                                                  <h1 style="font-size: 22px; font-weight: bold;">ALL answer papers has been examined.</h1>
-                                                </div>
-                                            @else
                                             @foreach($answers as $answer)
-                                                <tr class='clickable-row' data-href='{{route('exam.sheet',$answer->id)}}'>
+                                                <tr class='clickable-row' >
                                                     <td>
                                                         <div class="media">
                                                             <div class="media-body">
-                                                                <span class="media-meta pull-right">{{$answer->student->id}}</span>
+                                                                <span class="media-meta pull-right">{{$answer->exam->course->course_code}}</span>
                                                                 <h4 class="title">
                                                                     {{$answer->student->userinfo->reg_no}}
-                                                                    <span class="pull-right pagado">{{$answer->exam->course->course_code}}</span>
+                                                                    <span class="pull-right pagado">{{$answer->exam->course->title}}</span>
                                                                 </h4>
-                                                                <span class="media-meta pull-right">{{$answer->end}}</span>
-                                                                <p class="summary">{{$answer->exam->course->title}}</p>
+                                                                {{--<span class="media-meta pull-right">{{$answer->end}}</span>--}}
+                                                                <p class="summary">Marks: {{$answer->marks}}</p>
                                                             </div>
                                                         </div>
                                                     </td>
                                                 </tr>
                                             @endforeach
-                                            @endif
                                             </tbody>
                                         </table>
                                     </div>
@@ -88,11 +81,11 @@
 
 @section('scripts')
     <script>
-        $( document ).ready(function() {
-            $(".clickable-row").click(function() {
-                window.location = $(this).data("href");
-            });
-        });
+        // $( document ).ready(function() {
+        //     $(".clickable-row").click(function() {
+        //         window.location = $(this).data("href");
+        //     });
+        // });
 
     </script>
 @endsection
@@ -108,7 +101,7 @@
             font-size: 18px;
             font-weight: bold;
             line-height: normal;
-            margin: 0;
+            margin-bottom: 5px;
         }
         .media .title span {
             font-size: .8em;
@@ -118,7 +111,8 @@
             color: #5cb85c;
         }
         .media .summary {
-            font-size: 14px;
+            font-size: 16px;
+            font-weight: bold;
         }
         p{
             margin: 0px;
@@ -126,5 +120,3 @@
     </style>
 
 @endsection
-
-{{--color: #2BBCDE; font-size: 18px; font-weight: bold;--}}

@@ -88,6 +88,11 @@ Route::group(['middleware' => ['role:teacher']],function (){
     Route::get('exam/sheet/{id}',['as'=>'exam.sheet','uses'=>'ExamTakeController@showSheet']);
     Route::post('exam/sheet/{id}',['as'=>'exam.examine','uses'=>'ExamTakeController@examine']);
 
+    Route::get('result/examined',['as'=>'result.examined','uses'=>'ExamTakeController@resultExamined']);
+    Route::get('result/batch/{id}',['as'=>'result.batch','uses'=>'ExamTakeController@resultBatch']);
+    
+    
+    
 });
 
 Route::group(['middleware' => ['role:student']],function (){
