@@ -48,7 +48,7 @@ class CourseService extends BaseService
 
     public function store(Request $request){
 
-        $data=$request->only(['title','course_code','session']);
+        $data=$request->only(['title','course_code']);
         $data['teacher_id']=auth()->user()->id;
         $course =  $this->create($data);
         return $course;

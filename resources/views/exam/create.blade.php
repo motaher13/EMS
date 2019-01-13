@@ -53,6 +53,13 @@
                                             </div>
 
                                             <div class="form-group">
+                                                <label for="session" class="control-label col-sm-2">Session</label>
+                                                <div class="col-sm-8">
+                                                    <input class="form-control" placeholder="Enter session" name="session" type="text"  id="session">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
                                                 <label for="start" class="control-label col-sm-2">Start time</label>
                                                 <div class="col-sm-8">
                                                     <input class="form-control" placeholder="Enter start" name="start" type="datetime-local"  id="start">

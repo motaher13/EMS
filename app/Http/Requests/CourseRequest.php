@@ -28,7 +28,6 @@ class CourseRequest extends FormRequest
         return [
             'title' => 'required',
             'course_code' => 'required',
-            'session' => 'required'
         ];
     }
 }

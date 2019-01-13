@@ -21,7 +21,7 @@ class ExamController extends Controller
 
     public function store(Request $request)
     {
-        $data=$request->only(['title','course_id','start','end']);
+        $data=$request->only(['title','course_id','session','start','end']);
         $data['teacher_id']=auth()->user()->id;
         $exam = Exam::create($data);
         return redirect()->route('dashboard.main');

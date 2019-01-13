@@ -33,13 +33,13 @@ class CourseController extends Controller
 
     public function store(CourseRequest $request)
     {
-        try{
+//        try{
             $course=$this->courseService->store($request);
 
             return redirect()->route('dashboard.main');
-        }catch (\Exception $e){
-            return redirect()->back()->withInput()->with('error','something went wrong. Try again.');
-        }
+//        }catch (\Exception $e){
+//            return redirect()->back()->withInput()->with('error','something went wrong. Try again.');
+//        }
     }
 
 
