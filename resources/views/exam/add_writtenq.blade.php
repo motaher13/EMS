@@ -23,7 +23,7 @@
                                     <div class="col-md-6">
                                         <div class="caption caption-md">
                                             <i class="icon-globe theme-font hide"></i>
-                                            <span class="caption-subject font-blue-madison bold uppercase">Provide MCQ Data</span>
+                                            <span class="caption-subject font-blue-madison bold uppercase">Provide Written Question Data</span>
                                         </div>
                                     </div>
                                     <div class="col-md-6">

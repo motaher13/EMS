@@ -53,6 +53,16 @@ class ExamController extends Controller
         return view('exam.edit')->with('courses',$courses)->with('exam',$exam);
     }
 
+    public function update($id,Request $request)
+    {
+        $data=$request->only(['title','course_id','start','end']);
+        $exam = Exam::find($id);
+        $exam->update($data);
+
+        return redirect()->route('exam.created')->with('success','Exam updated Successfully.');
+
+    }
+
 
 
 

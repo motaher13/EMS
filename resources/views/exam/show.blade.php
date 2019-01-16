@@ -84,9 +84,11 @@
                                                 </div>
                                                 <p class="pull-right" style="margin-right: 30px;">marks:{{$writtenq->marks}}</p>
                                                 <p style="margin-bottom: 0px;">{{$i}}. {{$writtenq->question}}</p>
-                                                <div style="margin:20px 10px;">
-                                                    <img src="{{asset($writtenq->picture)}}" style="width: 40%;" class="img-thumbnail">
-                                                </div>
+                                                @if($writtenq->picture!=null)
+                                                    <div style="margin:20px 10px;">
+                                                        <img src="{{asset($writtenq->picture)}}" style="width: 40%;" class="img-thumbnail">
+                                                    </div>
+                                                @endif
 
                                             </div>
                                         @endforeach

@@ -16,7 +16,8 @@ class ExamTakeController extends Controller
 {
     public function list()
     {
-        $exams=Exam::where('start','>=',date("Y-m-d H:i:s"))->get();
+        $answers=Answer::where('student_id',auth()->user()->id)->pluck('exam_id');
+        $exams=Exam::where('start','>=',date("Y-m-d H:i:s"))->whereNotIn('id',$answers)->get();
         return view('exam_take.list')->with('exams',$exams);
     }
 

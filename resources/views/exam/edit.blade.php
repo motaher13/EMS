@@ -20,7 +20,7 @@
                         <div class="portlet-title tabbable-line">
                             <div class="caption caption-md">
                                 <i class="icon-globe theme-font hide"></i>
-                                <span class="caption-subject font-blue-madison bold uppercase">Provide Exam Data</span>
+                                <span class="caption-subject font-blue-madison bold uppercase">Update Exam Data</span>
                             </div>
 
                         </div>
@@ -30,13 +30,13 @@
                                 <div class="tab-pane active">
 
                                     <div class="container" style="margin-top: 20px; display: inline;">
-                                        <form method="POST" id="updateProfile" action="{{route('exam.create')}}"accept-charset="UTF-8" class="cmxform form-horizontal tasi-form" enctype="multipart/form-data">
+                                        <form method="POST" id="updateProfile" action="{{route('exam.edit',$exam->id)}}"accept-charset="UTF-8" class="cmxform form-horizontal tasi-form" enctype="multipart/form-data">
                                             {{ csrf_field() }}
 
                                             <div class="form-group">
                                                 <label for="title" class="control-label col-sm-2">Title</label>
                                                 <div class="col-sm-8">
-                                                    <input class="form-control" placeholder="Enter title" name="title" type="text"  id="title">
+                                                    <input class="form-control" value="{{$exam->title}}" name="title" type="text"  id="title">
                                                 </div>
                                             </div>
 
