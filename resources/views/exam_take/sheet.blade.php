@@ -74,9 +74,11 @@
                                                 <div style="margin-bottom: 40px;">
                                                     <p class="pull-right" style="margin-right: 30px;">marks:{{$writtena->writtenq->marks}}</p>
                                                     <p style="font-size: 18px;font-weight: bold;line-height: normal;margin: 0;">{{$i}}. {{$writtena->writtenq->question}}</p>
+                                                    @if($writtena->writtenq->picture!=null)
                                                     <div style="margin:20px 10px;">
                                                         <img src="{{asset($writtena->writtenq->picture)}}" style="width: 40%;" class="img-thumbnail">
                                                     </div>
+                                                    @endif
                                                     <div style="width: 800px">
                                                         <h1 style="font-size: 18px;font-weight: bold;line-height: normal;margin: 0;">Answer: </h1>
                                                         {!!  $writtena->answer!!}

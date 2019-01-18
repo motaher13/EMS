@@ -17,7 +17,7 @@ class ExamTakeController extends Controller
     public function list()
     {
         $answers=Answer::where('student_id',auth()->user()->id)->pluck('exam_id');
-        $exams=Exam::where('start','>=',date("Y-m-d H:i:s"))->whereNotIn('id',$answers)->get();
+        $exams=Exam::where('end','>=',date("Y-m-d H:i:s"))->whereNotIn('id',$answers)->get();
         return view('exam_take.list')->with('exams',$exams);
     }
 
@@ -54,12 +54,12 @@ class ExamTakeController extends Controller
 //        return $request;
         $data=$request->except('_token');
         $keys=array_keys($data);
-//        return $data;
+//        return sizeof($keys);
         $dt['exam_id']=$id;
         $dt['student_id']=auth()->user()->id;
         $answer=Answer::create($dt);
 
-        for($i=1;$i<sizeof($keys);$i++)
+        for($i=0;$i<sizeof($keys);$i++)
         {
             $str=$keys[$i];
             if($str[0]=='m')
@@ -79,7 +79,6 @@ class ExamTakeController extends Controller
                 $mcqa=WrittenA::create($dta);
             }
         }
-
         return redirect()->route('exam.list');
     }
 
@@ -111,7 +110,7 @@ class ExamTakeController extends Controller
 
     public function showSheetList($id)
     {
-        $answers=Answer::where('exam_id',$id)->whereNull('marks')->get();
+        $answers=Answer::where('exam_id',$id)->where('marks',-1)->get();
         return view('exam_take.sheet-list')->with('answers',$answers);
     }
 
@@ -166,7 +165,6 @@ class ExamTakeController extends Controller
             if($mcqa->answer==$mcqa->mcqq->answer)
                 $sum+=$mcqa->mcqq->marks;
         }
-
         $answer=Answer::find($id);
         $answer->marks=$sum;
         $answer->save();
@@ -175,7 +173,7 @@ class ExamTakeController extends Controller
         $b=0;
         foreach ($answers as $answer)
         {
-            if($answer->marks==null)
+            if($answer->marks==-1)
             {
                 $b=1;
                 break;
