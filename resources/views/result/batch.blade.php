@@ -59,7 +59,30 @@
                                                     <td><h4>{{$answer->student->username}}</h4></td>
                                                     <td><h4>{{$answer->student->userinfo->reg_no}}</h4></td>
                                                     <td><h4>{{$answer->marks}}</h4></td>
+<div class="col-md-12">
+            <!-- BEGIN PROFILE SIDEBAR -->
 
+            <div class="profile-sidebar">
+                <!-- PORTLET MAIN -->
+                <div class="portlet light profile-sidebar-portlet ">
+                    <!-- SIDEBAR USERPIC -->
+                    <div class="profile-userpic">
+                        @if(isset($user->userInfo->photo))
+                            <img src="{{asset($user->userInfo->photo)}}" class="img-responsive" alt=""> </div>
+                        @else
+                            <img src="../assets/pages/media/profile/profile_user.jpg" class="img-responsive" alt=""> </div>
+                        @endif
+                    <!-- END SIDEBAR USERPIC -->
+                    <!-- SIDEBAR USER TITLE -->
+                    <div class="profile-usertitle">
+                        <div class="profile-usertitle-name"> {{$user->username}} </div>
+                    </div>
+                    <!-- END SIDEBAR USER TITLE -->
+
+                </div>
+                <!-- END PORTLET MAIN -->
+
+            </div>
                                                     {{--<td>--}}
                                                         {{--<div class="media">--}}
                                                             {{--<div class="media-body">--}}
@@ -89,7 +112,30 @@
             </div>
         </div>
         <!-- END PROFILE CONTENT -->
-    </div>
+    </div><div class="col-md-12">
+            <!-- BEGIN PROFILE SIDEBAR -->
+
+            <div class="profile-sidebar">
+                <!-- PORTLET MAIN -->
+                <div class="portlet light profile-sidebar-portlet ">
+                    <!-- SIDEBAR USERPIC -->
+                    <div class="profile-userpic">
+                        @if(isset($user->userInfo->photo))
+                            <img src="{{asset($user->userInfo->photo)}}" class="img-responsive" alt=""> </div>
+                        @else
+                            <img src="../assets/pages/media/profile/profile_user.jpg" class="img-responsive" alt=""> </div>
+                        @endif
+                    <!-- END SIDEBAR USERPIC -->
+                    <!-- SIDEBAR USER TITLE -->
+                    <div class="profile-usertitle">
+                        <div class="profile-usertitle-name"> {{$user->username}} </div>
+                    </div>
+                    <!-- END SIDEBAR USER TITLE -->
+
+                </div>
+                <!-- END PORTLET MAIN -->
+
+            </div>
 
 
 @endsection

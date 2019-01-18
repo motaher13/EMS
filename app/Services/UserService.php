@@ -60,7 +60,7 @@ class UserService extends BaseService
 
     public function profileUpdate(Request $request)
     {
-        $data = $request->only(['name','email','phone','degree_name','institution','session']);
+        $data = $request->only(['username','email']);
         $user =  $this->userRepository->updateUserInfo($data);
         return $user;
     }

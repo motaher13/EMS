@@ -52,21 +52,8 @@ class UserRepository extends Repository
             $userInfo->user_id=$user->id;
         }
         $user->email=$data['email'];
+        $user->username=$data['username'];
         $user->save();
-        $userInfo->name=$data['name'];
-        $userInfo->phone=$data['phone'];
-        $userInfo->save();
-
-        $education=Education::where('user_id',$user->id)->first();
-        if (is_null($education)) {
-            $education=new Education;
-            $education->user_id=$user->id;
-        }
-
-        $education->degree_name=$data['degree_name'];
-        $education->institution=$data['institution'];
-        $education->session=$data['session'];
-        $education->save();
 
         return $user;
     }

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-    {{ Breadcrumbs::render(Route::currentRouteName()) }}
+{{--    {{ Breadcrumbs::render(Route::currentRouteName()) }}--}}
     <!-- BEGIN PAGE TITLE-->
     {{--<h1 class="page-title"> New User Profile | Account--}}
         {{--<small>user account page</small>--}}
@@ -32,31 +32,31 @@
     {{--</h1>--}}
     <!-- END PAGE TITLE-->
     <!-- END PAGE HEADER-->
-    <div class="row">
-        <div class="col-md-12">
-            <!-- BEGIN PROFILE SIDEBAR -->
-            
-            <div class="profile-sidebar">
-                <!-- PORTLET MAIN -->
-                <div class="portlet light profile-sidebar-portlet ">
-                    <!-- SIDEBAR USERPIC -->
-                    <div class="profile-userpic">
-                        @if(isset($user->userInfo->photo))
-                            <img src="{{asset($user->userInfo->photo)}}" class="img-responsive" alt=""> </div>
-                        @else
-                            <img src="../assets/pages/media/profile/profile_user.jpg" class="img-responsive" alt=""> </div>
-                        @endif
-                    <!-- END SIDEBAR USERPIC -->
-                    <!-- SIDEBAR USER TITLE -->
-                    <div class="profile-usertitle">
-                        <div class="profile-usertitle-name"> {{$user->username}} </div>
-                    </div>
-                    <!-- END SIDEBAR USER TITLE -->
-                   
-                </div>
-                <!-- END PORTLET MAIN -->
-                
-            </div>
+    <div class="row"style="width: 95%;margin:auto;">
+        {{--<div class="col-md-12">--}}
+            {{--<!-- BEGIN PROFILE SIDEBAR -->--}}
+            {{----}}
+            {{--<div class="profile-sidebar">--}}
+                {{--<!-- PORTLET MAIN -->--}}
+                {{--<div class="portlet light profile-sidebar-portlet ">--}}
+                    {{--<!-- SIDEBAR USERPIC -->--}}
+                    {{--<div class="profile-userpic">--}}
+                        {{--@if(isset($user->userInfo->photo))--}}
+                            {{--<img src="{{asset($user->userInfo->photo)}}" class="img-responsive" alt=""> </div>--}}
+                        {{--@else--}}
+                            {{--<img src="../assets/pages/media/profile/profile_user.jpg" class="img-responsive" alt=""> </div>--}}
+                        {{--@endif--}}
+                    {{--<!-- END SIDEBAR USERPIC -->--}}
+                    {{--<!-- SIDEBAR USER TITLE -->--}}
+                    {{--<div class="profile-usertitle">--}}
+                        {{--<div class="profile-usertitle-name"> {{$user->username}} </div>--}}
+                    {{--</div>--}}
+                    {{--<!-- END SIDEBAR USER TITLE -->--}}
+                   {{----}}
+                {{--</div>--}}
+                {{--<!-- END PORTLET MAIN -->--}}
+                {{----}}
+            {{--</div>--}}
             
             <!-- END BEGIN PROFILE SIDEBAR -->
             <!-- BEGIN PROFILE CONTENT -->
@@ -74,9 +74,9 @@
                                         <a href="{!! route('profile') !!}">Personal Info</a>
                                     </li>
 
-                                    <li>
-                                        <a href="{!! route('profile.pic.change') !!}">Change Avatar</a>
-                                    </li>
+                                    {{--<li>--}}
+                                        {{--<a href="{!! route('profile.pic.change') !!}">Change Avatar</a>--}}
+                                    {{--</li>--}}
                                     <li class="active">
                                         <a href="{!! route('profile.password.reset') !!}">Change Password</a>
                                     </li>

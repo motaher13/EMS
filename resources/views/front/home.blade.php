@@ -28,107 +28,107 @@
 </div>
 
 <!-- ##### Header Area Start ##### -->
-<header class="header-area wow fadeInDown" data-wow-delay="500ms">
-    <!-- Top Header Area -->
-    <!--<div class="top-header-area">-->
-    <!--<div class="container h-100">-->
-    <!--<div class="row h-100 align-items-center">-->
-    <!--<div class="col-12 d-flex align-items-center justify-content-between">-->
-    <!--&lt;!&ndash; Logo Area &ndash;&gt;-->
-    <!--<div class="logo">-->
-    <!--<a href="index.html"><img src="img/core-img/logo.png" alt=""></a>-->
-    <!--</div>-->
+{{--<header class="header-area wow fadeInDown" data-wow-delay="500ms">--}}
+    {{--<!-- Top Header Area -->--}}
+    {{--<!--<div class="top-header-area">-->--}}
+    {{--<!--<div class="container h-100">-->--}}
+    {{--<!--<div class="row h-100 align-items-center">-->--}}
+    {{--<!--<div class="col-12 d-flex align-items-center justify-content-between">-->--}}
+    {{--<!--&lt;!&ndash; Logo Area &ndash;&gt;-->--}}
+    {{--<!--<div class="logo">-->--}}
+    {{--<!--<a href="index.html"><img src="img/core-img/logo.png" alt=""></a>-->--}}
+    {{--<!--</div>-->--}}
 
-    <!--&lt;!&ndash; Search & Login Area &ndash;&gt;-->
-    <!--<div class="search-login-area d-flex align-items-center">-->
-    <!--&lt;!&ndash; Top Search Area &ndash;&gt;-->
-    <!--<div class="top-search-area">-->
-    <!--<form action="#" method="post">-->
-    <!--<input type="search" name="top-search" id="topSearch" placeholder="Search">-->
-    <!--<button type="submit" class="btn"><i class="fa fa-search"></i></button>-->
-    <!--</form>-->
-    <!--</div>-->
-    <!--&lt;!&ndash; Login Area &ndash;&gt;-->
-    <!--<div class="login-area">-->
-    <!--<a href="#"><span>Login / Register</span> <i class="fa fa-lock" aria-hidden="true"></i></a>-->
-    <!--</div>-->
-    <!--</div>-->
-    <!--</div>-->
-    <!--</div>-->
-    <!--</div>-->
-    <!--</div>-->
+    {{--<!--&lt;!&ndash; Search & Login Area &ndash;&gt;-->--}}
+    {{--<!--<div class="search-login-area d-flex align-items-center">-->--}}
+    {{--<!--&lt;!&ndash; Top Search Area &ndash;&gt;-->--}}
+    {{--<!--<div class="top-search-area">-->--}}
+    {{--<!--<form action="#" method="post">-->--}}
+    {{--<!--<input type="search" name="top-search" id="topSearch" placeholder="Search">-->--}}
+    {{--<!--<button type="submit" class="btn"><i class="fa fa-search"></i></button>-->--}}
+    {{--<!--</form>-->--}}
+    {{--<!--</div>-->--}}
+    {{--<!--&lt;!&ndash; Login Area &ndash;&gt;-->--}}
+    {{--<!--<div class="login-area">-->--}}
+    {{--<!--<a href="#"><span>Login / Register</span> <i class="fa fa-lock" aria-hidden="true"></i></a>-->--}}
+    {{--<!--</div>-->--}}
+    {{--<!--</div>-->--}}
+    {{--<!--</div>-->--}}
+    {{--<!--</div>-->--}}
+    {{--<!--</div>-->--}}
+    {{--<!--</div>-->--}}
 
-    <!-- Navbar Area -->
-    <div class="egames-main-menu" id="sticker">
-        <div class="classy-nav-container breakpoint-off">
-            <div class="container">
-                <!-- Menu -->
-                <nav class="classy-navbar justify-content-between" id="egamesNav">
+    {{--<!-- Navbar Area -->--}}
+    {{--<div class="egames-main-menu" id="sticker">--}}
+        {{--<div class="classy-nav-container breakpoint-off">--}}
+            {{--<div class="container">--}}
+                {{--<!-- Menu -->--}}
+                {{--<nav class="classy-navbar justify-content-between" id="egamesNav">--}}
 
-                    <!-- Navbar Toggler -->
-                    <div class="classy-navbar-toggler">
-                        <span class="navbarToggler"><span></span><span></span><span></span></span>
-                    </div>
+                    {{--<!-- Navbar Toggler -->--}}
+                    {{--<div class="classy-navbar-toggler">--}}
+                        {{--<span class="navbarToggler"><span></span><span></span><span></span></span>--}}
+                    {{--</div>--}}
 
-                    <!-- Menu -->
-                    <div class="classy-menu">
+                    {{--<!-- Menu -->--}}
+                    {{--<div class="classy-menu">--}}
 
-                        <!-- Close Button -->
-                        <div class="classycloseIcon">
-                            <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
-                        </div>
+                        {{--<!-- Close Button -->--}}
+                        {{--<div class="classycloseIcon">--}}
+                            {{--<div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>--}}
+                        {{--</div>--}}
 
-                        <!-- Nav Start -->
-                        <div class="classynav">
-                            <ul>
-                                <li><a href="#">Home</a></li>
-                                <li><a href="#">Exams</a>
-                                    <ul class="dropdown">
-                                        <li><a href="#">Exam Review</a></li>
-                                        <li><a href="#">Single Exam Review</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Pages</a>
-                                    <ul class="dropdown">
-                                        <li><a href="#">Home</a></li>
-                                        <li><a href="#">Articles</a></li>
-                                        <li><a href="#">Single Articles</a></li>
-                                        <li><a href="#">Exam Review</a></li>
-                                        <li><a href="#">Single Exam Review</a></li>
-                                        <li><a href="#">Contact</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="post.html">Articles</a>
-                                    <ul class="dropdown">
-                                        <li><a href="#">Articles</a></li>
-                                        <li><a href="#">Single Articles</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Reviews</a>
-                                    <ul class="dropdown">
-                                        <li><a href="#">Exam Review</a></li>
-                                        <li><a href="#">Single Exam Review</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Contact</a></li>
-                            </ul>
-                        </div>
-                        <!-- Nav End -->
-                    </div>
+                        {{--<!-- Nav Start -->--}}
+                        {{--<div class="classynav">--}}
+                            {{--<ul>--}}
+                                {{--<li><a href="#">Enter</a></li>--}}
+                                {{--<li><a href="#">Exams</a>--}}
+                                    {{--<ul class="dropdown">--}}
+                                        {{--<li><a href="#">Exam Review</a></li>--}}
+                                        {{--<li><a href="#">Single Exam Review</a></li>--}}
+                                    {{--</ul>--}}
+                                {{--</li>--}}
+                                {{--<li><a href="#">Pages</a>--}}
+                                    {{--<ul class="dropdown">--}}
+                                        {{--<li><a href="#">Home</a></li>--}}
+                                        {{--<li><a href="#">Articles</a></li>--}}
+                                        {{--<li><a href="#">Single Articles</a></li>--}}
+                                        {{--<li><a href="#">Exam Review</a></li>--}}
+                                        {{--<li><a href="#">Single Exam Review</a></li>--}}
+                                        {{--<li><a href="#">Contact</a></li>--}}
+                                    {{--</ul>--}}
+                                {{--</li>--}}
+                                {{--<li><a href="post.html">Articles</a>--}}
+                                    {{--<ul class="dropdown">--}}
+                                        {{--<li><a href="#">Articles</a></li>--}}
+                                        {{--<li><a href="#">Single Articles</a></li>--}}
+                                    {{--</ul>--}}
+                                {{--</li>--}}
+                                {{--<li><a href="#">Reviews</a>--}}
+                                    {{--<ul class="dropdown">--}}
+                                        {{--<li><a href="#">Exam Review</a></li>--}}
+                                        {{--<li><a href="#">Single Exam Review</a></li>--}}
+                                    {{--</ul>--}}
+                                {{--</li>--}}
+                                {{--<li><a href="#">Contact</a></li>--}}
+                            {{--</ul>--}}
+                        {{--</div>--}}
+                        {{--<!-- Nav End -->--}}
+                    {{--</div>--}}
 
-                    <div class="top-social-info">
-                        <a href="#" data-toggle="tooltip" data-placement="top" title="Pinterest"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
-                        <a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                        <a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                        <a href="#" data-toggle="tooltip" data-placement="top" title="Dribbble"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
-                        <a href="#" data-toggle="tooltip" data-placement="top" title="Behance"><i class="fa fa-behance" aria-hidden="true"></i></a>
-                        <a href="#" data-toggle="tooltip" data-placement="top" title="Linkedin"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                    </div>
-                </nav>
-            </div>
-        </div>
-    </div>
-</header>
+                    {{--<div class="top-social-info">--}}
+                        {{--<a href="#" data-toggle="tooltip" data-placement="top" title="Pinterest"><i class="fa fa-pinterest" aria-hidden="true"></i></a>--}}
+                        {{--<a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>--}}
+                        {{--<a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>--}}
+                        {{--<a href="#" data-toggle="tooltip" data-placement="top" title="Dribbble"><i class="fa fa-dribbble" aria-hidden="true"></i></a>--}}
+                        {{--<a href="#" data-toggle="tooltip" data-placement="top" title="Behance"><i class="fa fa-behance" aria-hidden="true"></i></a>--}}
+                        {{--<a href="#" data-toggle="tooltip" data-placement="top" title="Linkedin"><i class="fa fa-linkedin" aria-hidden="true"></i></a>--}}
+                    {{--</div>--}}
+                {{--</nav>--}}
+            {{--</div>--}}
+        {{--</div>--}}
+    {{--</div>--}}
+{{--</header>--}}
 <!-- ##### Header Area End ##### -->
 
 <!-- ##### Hero Area Start ##### -->
