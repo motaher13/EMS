@@ -95,6 +95,17 @@ Route::group(['middleware' => ['role:teacher']],function (){
     
 });
 
+
+Route::group(['middleware' => ['role:student|teacher']],function (){
+
+    Route::get('result/examined',['as'=>'result.examined','uses'=>'ExamTakeController@resultExamined']);
+    Route::get('result/batch/{id}',['as'=>'result.batch','uses'=>'ExamTakeController@resultBatch']);
+
+
+});
+
+
+
 Route::group(['middleware' => ['role:student']],function (){
 
     Route::get('course',['as'=>'course.list','uses'=>'QuestionController@courseList']);

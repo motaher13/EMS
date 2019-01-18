@@ -165,8 +165,8 @@
                     </a>
                 </li>
 
-                <li class="nav-item {!! Menu::isActiveRoute('result.personal') !!}">
-                    <a href="{!! route('result.personal') !!}" class="nav-link ">
+                <li class="nav-item {!! Menu::isActiveRoute('result.examined') !!}">
+                    <a href="{!! route('result.examined') !!}" class="nav-link ">
                         <i class="icon-folder"></i>
                         <span class="title">Results</span>
 

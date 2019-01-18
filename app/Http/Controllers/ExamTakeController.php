@@ -33,8 +33,13 @@ class ExamTakeController extends Controller
         $mcqqs=McqQ::where('exam_id',$id)->get();
         $writtenqs=WrittenQ::where('exam_id',$id)->get();
         $exam=Exam::find($id);
+        $start=\Carbon\Carbon::createFromFormat('Y-m-d H:i:s',$exam->start);
+        $end= \Carbon\Carbon::createFromFormat('Y-m-d H:i:s',$exam->end);
+        $duration=$start->diffInMinutes($end);
+        $current=\Carbon\Carbon::createFromFormat('Y-m-d H:i:s',date("Y-m-d H:i:s"));
+        $left=$current->diffInMinutes($end);
 
-        return view('exam_take.take')->with('mcqqs',$mcqqs)->with('writtenqs',$writtenqs)->with('exam',$exam);
+        return view('exam_take.take')->with('mcqqs',$mcqqs)->with('writtenqs',$writtenqs)->with('exam',$exam)->with('duration',$duration*60)->with('left',$left*60);
     }
 
 
@@ -207,7 +212,7 @@ class ExamTakeController extends Controller
 
     public function resultExamined()
     {
-        $exams=Exam::where('teacher_id',auth()->user()->id)->where('examined',1)->orderby('updated_at','DESC')->get();
+        $exams=Exam::where('examined',1)->orderby('updated_at','DESC')->get();
         return view('result.examined')->with('exams',$exams);
     }
 
@@ -216,7 +221,7 @@ class ExamTakeController extends Controller
 
     public function resultBatch($id)
     {
-        $answers=Answer::where('exam_id',$id)->get();
+        $answers=Answer::where('exam_id',$id)->orderby('marks','DESC')->get();
         return view('result.batch')->with('answers',$answers);
     }
 

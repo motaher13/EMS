@@ -13,8 +13,7 @@
     <div class="page-container">
         @include('partials.sideBar')
         <div class="page-content-wrapper">
-            <div class="page-content" style="background-image: url({!! url('assets/global/plugins/egames/img/bg-img/ff/i.jpg') !!});background-repeat: no-repeat;
-                    background-size: cover;">
+            <div class="page-content" style="background-image: url({!! url('assets/global/plugins/egames/img/bg-img/ff/i.jpg') !!});background-repeat: repeat-y; background-size: 100%;">
                 @yield('content')
             </div>
         </div>

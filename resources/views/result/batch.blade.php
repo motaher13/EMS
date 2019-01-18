@@ -23,7 +23,7 @@
                                 <div class="col-md-6">
                                     <div class="caption caption-md">
                                         <i class="icon-globe theme-font hide"></i>
-                                        <span class="caption-subject font-blue-madison bold uppercase">Results</span>
+                                        <span class="caption-subject font-blue-madison bold uppercase">Rank List</span>
                                     </div>
                                 </div>
                                 {{--<div class="col-md-6">--}}
@@ -42,22 +42,37 @@
                                 <div class="tab-pane active" >
                                     <div class="table-responsive">
                                         <table class="table table-striped table-hover">
+                                            <thead>
+                                            <tr>
+                                                <th >Rank</th>
+                                                <th >Name</th>
+                                                <th >Registration No</th>
+                                                <th >Marks</th>
+                                            </tr>
+                                            </thead>
                                             <tbody >
+                                            <?php $i=0;?>
                                             @foreach($answers as $answer)
+                                                <?php $i++?>
                                                 <tr class='clickable-row' >
-                                                    <td>
-                                                        <div class="media">
-                                                            <div class="media-body">
-                                                                <span class="media-meta pull-right">{{$answer->exam->course->course_code}}</span>
-                                                                <h4 class="title">
-                                                                    {{$answer->student->userinfo->reg_no}}
-                                                                    <span class="pull-right pagado">{{$answer->exam->course->title}}</span>
-                                                                </h4>
+                                                    <td><h4>{{$i}}</h4></td>
+                                                    <td><h4>{{$answer->student->username}}</h4></td>
+                                                    <td><h4>{{$answer->student->userinfo->reg_no}}</h4></td>
+                                                    <td><h4>{{$answer->marks}}</h4></td>
+
+                                                    {{--<td>--}}
+                                                        {{--<div class="media">--}}
+                                                            {{--<div class="media-body">--}}
+                                                                {{--<span class="media-meta pull-right">{{$answer->exam->course->course_code}}</span>--}}
+                                                                {{--<h4 class="title">--}}
+                                                                    {{--. {{$answer->student->userinfo->reg_no}}--}}
+                                                                    {{--<span class="pull-right pagado">{{$answer->exam->course->title}}</span>--}}
+                                                                {{--</h4>--}}
                                                                 {{--<span class="media-meta pull-right">{{$answer->end}}</span>--}}
-                                                                <p class="summary">Marks: {{$answer->marks}}</p>
-                                                            </div>
-                                                        </div>
-                                                    </td>
+                                                                {{--<p class="summary">Marks: {{$answer->marks}}</p>--}}
+                                                            {{--</div>--}}
+                                                        {{--</div>--}}
+                                                    {{--</td>--}}
                                                 </tr>
                                             @endforeach
                                             </tbody>
@@ -96,8 +111,8 @@
             font-size: 11px;
             color: #999;
         }
-        .media .title {
-            color: #2BBCDE;
+        h4 {
+
             font-size: 18px;
             font-weight: bold;
             line-height: normal;
