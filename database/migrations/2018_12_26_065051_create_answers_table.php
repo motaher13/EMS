@@ -21,7 +21,7 @@ class CreateAnswersTable extends Migration
             $table->integer('exam_id')->unsigned()->nullable();
             $table->foreign('exam_id')->references('id')->on('exams')
                 ->onUpdate('cascade')->onDelete('cascade');
-            $table->integer('marks')->default(-1);
+            $table->integer('marks')->nullable();
             $table->timestamps();
         });
     }
