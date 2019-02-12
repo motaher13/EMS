@@ -57,7 +57,7 @@ class ExamTakeController extends Controller
     {
         $exam=Exam::find($id);
         if($exam->password!=$request->password)
-            return redirect()->route('exam.list-list')->with('error','Incorrect Password');
+            return redirect()->route('exam.list-list',$id)->with('error','Incorrect Password');
 
         $mcqqs=McqQ::where('exam_id',$id)->get();
         $writtenqs=WrittenQ::where('exam_id',$id)->get();
@@ -108,7 +108,7 @@ class ExamTakeController extends Controller
                 $mcqa=WrittenA::create($dta);
             }
         }
-        return redirect()->route('exam.list-list');
+        return redirect()->route('exam.list-list',$answer->exam_id);
     }
 
 
