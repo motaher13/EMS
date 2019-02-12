@@ -122,6 +122,35 @@
 
 
 
+
+                <li class="nav-item {!! Menu::areActiveRoutes(['post.create','post.created']) !!}">
+                    <a href="#" class="nav-link nav-toggle">
+                        <i class="icon-folder"></i>
+                        <span class="title">post</span>
+                        <span class="arrow"></span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li class="nav-item {!! Menu::isActiveRoute('post.create') !!}">
+                            <a href="{!! route('post.create') !!}" class="nav-link ">
+                                <i class="icon-folder"></i>
+                                <span class="title">Create</span>
+
+                            </a>
+                        </li>
+                        <li class="nav-item {!! Menu::isActiveRoute('post.created') !!}">
+                            <a href="{!! route('post.created') !!}" class="nav-link ">
+                                <i class="icon-folder"></i>
+                                <span class="title">List</span>
+                            </a>
+                        </li>
+                    </ul>
+
+                </li>
+
+
+
+
+
                 {{--<li class="nav-item {!! Menu::isActiveRoute('course.created') !!}">--}}
                     {{--<a href="{!! route('course.created') !!}" class="nav-link ">--}}
                         {{--<i class="icon-folder"></i>--}}

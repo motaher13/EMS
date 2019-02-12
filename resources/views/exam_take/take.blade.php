@@ -75,16 +75,16 @@
                                                     <p class="pull-right" style="margin-right: 30px;">marks:{{$mcqq->marks}}</p>
                                                     <p style="margin-bottom: 0px;">{{$i}}. {{$mcqq->question}}</p>
                                                     <div class="radio">
-                                                        <label><input type="radio" value="a" name="m{{$mcqq->id}}" >Option A</label>
+                                                        <label><input type="radio" value="a" name="m{{$mcqq->id}}" >{{$mcqq->option_a}}</label>
                                                     </div>
                                                     <div class="radio">
-                                                        <label><input type="radio" value="b" name="m{{$mcqq->id}}" >Option B</label>
+                                                        <label><input type="radio" value="b" name="m{{$mcqq->id}}" >{{$mcqq->option_b}}</label>
                                                     </div>
                                                     <div class="radio disabled">
-                                                        <label><input type="radio" value="c" name="m{{$mcqq->id}}" >Option C</label>
+                                                        <label><input type="radio" value="c" name="m{{$mcqq->id}}" >{{$mcqq->option_c}}</label>
                                                     </div>
                                                     <div class="radio disabled" style="margin-bottom: 30px;">
-                                                        <label><input type="radio" value="d" name="m{{$mcqq->id}}" >Option D</label>
+                                                        <label><input type="radio" value="d" name="m{{$mcqq->id}}" >{{$mcqq->option_d}}</label>
                                                     </div>
                                                 </div>
                                             @endforeach

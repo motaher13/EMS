@@ -97,6 +97,15 @@ Route::group(['middleware' => ['role:teacher']],function (){
 
     Route::get('result/examined',['as'=>'result.examined','uses'=>'ExamTakeController@resultExamined']);
     Route::get('result/batch/{id}',['as'=>'result.batch','uses'=>'ExamTakeController@resultBatch']);
+
+
+
+
+
+    Route::get('post/create',['as'=>'post.create','uses'=>'PostController@create']);
+    Route::post('post/create',['as'=>'post.create','uses'=>'PostController@store']);
+    Route::get('post/created',['as'=>'post.created','uses'=>'PostController@showCreated']);
+    Route::get('post/show/{id}',['as'=>'post.show','uses'=>'PostController@show']);
     
     
     
