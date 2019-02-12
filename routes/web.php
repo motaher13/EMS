@@ -58,6 +58,9 @@ Route::group(['middleware' => ['role:teacher']],function (){
     Route::get('course/create',['as'=>'course.create','uses'=>'CourseController@create']);
     Route::post('course/create',['as'=>'course.create','uses'=>'CourseController@store']);
     Route::get('course/created',['as'=>'course.created','uses'=>'CourseController@showCreated']);
+    Route::get('course/edit/{id}',['as'=>'course.edit','uses'=>'CourseController@edit']);
+    Route::get('course/delete/{id}',['as'=>'course.delete','uses'=>'CourseController@delete']);
+    Route::post('course/update/{id}',['as'=>'course.update','uses'=>'CourseController@update']);
 
     Route::get('exam/create',['as'=>'exam.create','uses'=>'ExamController@create']);
     Route::post('exam/create',['as'=>'exam.create','uses'=>'ExamController@store']);
@@ -87,6 +90,10 @@ Route::group(['middleware' => ['role:teacher']],function (){
     Route::get('exam/sheet/list/{id}',['as'=>'exam.sheetList','uses'=>'ExamTakeController@showSheetList']);
     Route::get('exam/sheet/{id}',['as'=>'exam.sheet','uses'=>'ExamTakeController@showSheet']);
     Route::post('exam/sheet/{id}',['as'=>'exam.examine','uses'=>'ExamTakeController@examine']);
+    Route::post('exam/sheet-update/{id}',['as'=>'exam.examine-update','uses'=>'ExamTakeController@examineUpdate']);
+
+    Route::get('exam/publish/{id}',['as'=>'exam.publish','uses'=>'ExamTakeController@publish']);
+
 
     Route::get('result/examined',['as'=>'result.examined','uses'=>'ExamTakeController@resultExamined']);
     Route::get('result/batch/{id}',['as'=>'result.batch','uses'=>'ExamTakeController@resultBatch']);
@@ -112,12 +119,19 @@ Route::group(['middleware' => ['role:student']],function (){
     Route::get('course/questions/{course_code}',['as'=>'course.questions','uses'=>'QuestionController@list']);
     Route::get('question/{id}',['as'=>'question.show','uses'=>'QuestionController@show']);
 
-    Route::get('exam',['as'=>'exam.list','uses'=>'ExamTakeController@list']);
-    Route::get('exam/participate/{id}',['as'=>'exam.take','uses'=>'ExamTakeController@take']);
+//    Route::get('exam/{id}',['as'=>'exam.list','uses'=>'ExamTakeController@list']);
+    Route::get('exam/list/{id}',['as'=>'exam.list-list','uses'=>'ExamTakeController@list']);
+    Route::post('exam/participate/{id}',['as'=>'exam.take','uses'=>'ExamTakeController@take']);
+    Route::get('exam/password/{id}',['as'=>'exam.password','uses'=>'ExamTakeController@password']);
     Route::post('exam/answer/{id}',['as'=>'exam.answer','uses'=>'ExamTakeController@storeAnswer']);
 
+    Route::get('exam/course',['as'=>'exam.course','uses'=>'ExamTakeController@course']);
+//    Route::get('exam/course',function (){
+//        return 'abul';
+//    })->name('exam.course');
 
     Route::get('result/personal',['as'=>'result.personal','uses'=>'ExamTakeController@resultPersonal']);
+    Route::get('exam/sheet/marks/{id}',['as'=>'exam.sheetMarks','uses'=>'ExamTakeController@showSheetMarks']);
 
 });
 

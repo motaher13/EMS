@@ -8,6 +8,7 @@ use App\Models\McqQ;
 use App\Models\User;
 use App\Models\WrittenQ;
 use Illuminate\Http\Request;
+use Datetime;
 
 class ExamController extends Controller
 {
@@ -21,10 +22,16 @@ class ExamController extends Controller
 
     public function store(Request $request)
     {
-        $data=$request->only(['title','course_id','session','start','end']);
+
+        $data=$request->only(['title','course_id','session','password']);
         $data['teacher_id']=auth()->user()->id;
+
+        $time=strtotime($request->start);
+        $data['start']= date('Y-m-d H:i:s', $time);
+        $time=strtotime($request->end);
+        $data['end']= date('Y-m-d H:i:s', $time);
         $exam = Exam::create($data);
-        return redirect()->route('dashboard.main');
+        return redirect()->route('exam.created');
     }
 
 
@@ -55,7 +62,11 @@ class ExamController extends Controller
 
     public function update($id,Request $request)
     {
-        $data=$request->only(['title','course_id','start','end']);
+        $data=$request->only(['title','course_id','session','password']);
+        $time=strtotime($request->start);
+        $data['start']= date('Y-m-d H:i:s', $time);
+        $time=strtotime($request->end);
+        $data['end']= date('Y-m-d H:i:s', $time);
         $exam = Exam::find($id);
         $exam->update($data);
 

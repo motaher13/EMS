@@ -14,15 +14,28 @@ use PhpParser\Node\Stmt\Return_;
 
 class ExamTakeController extends Controller
 {
-    public function list()
+
+    public function course()
+    {
+//        return 'abul';
+        $courses=Course::distinct('course_code')->get();
+
+        return view('exam_take.course')->with('courses',$courses);
+    }
+
+
+
+    public function list($id)
     {
         $answers=Answer::where('student_id',auth()->user()->id)->pluck('exam_id');
-        $runningexams=Exam::where('end','>=',date("Y-m-d H:i:s"))
+        $runningexams=Exam::where('course_id',$id)
+                        ->where('end','>=',date("Y-m-d H:i:s"))
                         ->where('start','<=',date("Y-m-d H:i:s"))
                         ->whereNotIn('id',$answers)
                         ->orderby('start')
                         ->get();
-        $upcomingexams=Exam::where('start','>',date("Y-m-d H:i:s"))
+        $upcomingexams=Exam::where('course_id',$id)
+                        ->where('start','>',date("Y-m-d H:i:s"))
                         ->orderby('start')
                         ->whereNotIn('id',$answers)->get();
 
@@ -33,14 +46,22 @@ class ExamTakeController extends Controller
 
 
 
-
-
-
-    public function take($id)
+    public function password($id)
     {
+        $exam=Exam::find($id);
+        return view('exam_take.password')->with('exam',$exam);
+    }
+
+
+    public function take(Request $request,$id)
+    {
+        $exam=Exam::find($id);
+        if($exam->password!=$request->password)
+            return redirect()->route('exam.list')->with('error','Incorrect Password');
+
         $mcqqs=McqQ::where('exam_id',$id)->get();
         $writtenqs=WrittenQ::where('exam_id',$id)->get();
-        $exam=Exam::find($id);
+
         $start=\Carbon\Carbon::createFromFormat('Y-m-d H:i:s',$exam->start);
         $end= \Carbon\Carbon::createFromFormat('Y-m-d H:i:s',$exam->end);
         $duration=$start->diffInMinutes($end);
@@ -118,8 +139,10 @@ class ExamTakeController extends Controller
 
     public function showSheetList($id)
     {
-        $answers=Answer::where('exam_id',$id)->where('marks',-1)->get();
-        return view('exam_take.sheet-list')->with('answers',$answers);
+//        return $id;
+        $exam=Exam::find($id);
+        $answers=Answer::where('exam_id',$id)->get();
+        return view('exam_take.sheet-list')->with('answers',$answers)->with('exam',$exam);
     }
 
 
@@ -138,7 +161,24 @@ class ExamTakeController extends Controller
         $answer=Answer::find($id);
         $mcqas=McqA::where('answer_id',$id)->get();
         $writtenas=WrittenA::where('answer_id',$id)->get();
-        return view('exam_take.sheet')->with('mcqas',$mcqas)->with('writtenas',$writtenas)->with('answer',$answer);
+        if($answer->marks==-1)
+            return view('exam_take.sheet')->with('mcqas',$mcqas)->with('writtenas',$writtenas)->with('answer',$answer);
+        else
+            return view('exam_take.sheet-examine-update')->with('mcqas',$mcqas)->with('writtenas',$writtenas)->with('answer',$answer);
+    }
+
+
+
+
+
+
+    public function showSheetMarks($id)
+    {
+        $answer=Answer::find($id);
+        $mcqas=McqA::where('answer_id',$id)->get();
+        $writtenas=WrittenA::where('answer_id',$id)->get();
+
+        return view('exam_take.sheet-marks')->with('mcqas',$mcqas)->with('writtenas',$writtenas)->with('answer',$answer);
     }
 
 
@@ -176,24 +216,24 @@ class ExamTakeController extends Controller
         $answer=Answer::find($id);
         $answer->marks=$sum;
         $answer->save();
-        $exam=$answer->exam;
-        $answers=Answer::where('exam_id',$answer->exam_id)->get();
-        $b=0;
-        foreach ($answers as $answer)
-        {
-            if($answer->marks==-1)
-            {
-                $b=1;
-                break;
-            }
-        }
-        if($b==0)
-        {
-            $exam->examined=1;
-            $exam->save();
-        }
+//        $exam=$answer->exam;
+//        $answers=Answer::where('exam_id',$answer->exam_id)->get();
+//        $b=0;
+//        foreach ($answers as $answer)
+//        {
+//            if($answer->marks==-1)
+//            {
+//                $b=1;
+//                break;
+//            }
+//        }
+//        if($b==0)
+//        {
+//            $exam->examined=1;
+//            $exam->save();
+//        }
 
-        return redirect()->route('exam.sheetList',$id);
+        return redirect()->route('exam.sheetList',$answer->exam_id);
 
     }
 
@@ -207,9 +247,86 @@ class ExamTakeController extends Controller
 
 
 
+
+
+    public function examineUpdate($id,Request $request)
+    {
+        $data=$request->except('_token');
+        $keys=array_keys($data);
+        $sum=0;
+
+        for($i=0;$i<sizeof($keys);$i++)
+        {
+            $str=$keys[$i];
+            $j=(int)$str;
+            $writtena=WrittenA::find($j);
+            $writtena->marks=$data[$str];
+            $sum+=$data[$str];
+            $writtena->save();
+
+        }
+        $mcqas=McqA::where('answer_id',$id)->get();
+        foreach ($mcqas as $mcqa)
+        {
+            if($mcqa->answer==$mcqa->mcqq->answer)
+                $sum+=$mcqa->mcqq->marks;
+        }
+        $answer=Answer::find($id);
+        $answer->marks=$sum;
+        $answer->save();
+//        $exam=$answer->exam;
+//        $answers=Answer::where('exam_id',$answer->exam_id)->get();
+//        $b=0;
+//        foreach ($answers as $answer)
+//        {
+//            if($answer->marks==-1)
+//            {
+//                $b=1;
+//                break;
+//            }
+//        }
+//        if($b==0)
+//        {
+//            $exam->examined=1;
+//            $exam->save();
+//        }
+
+        return redirect()->route('exam.sheetList',$answer->exam_id);
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public function publish($id)
+    {
+        $exam=Exam::find($id);
+        $exam->examined=1;
+        $exam->save();
+        return redirect()->route('exam.held')->with('success','Result Published Successfully');
+    }
+
+
+
+
     public function resultPersonal()
     {
-        $answers=Answer::where('student_id',auth()->user()->id)->whereNotNull('marks')->get();
+        $answers=Answer::where('student_id',auth()->user()->id)->where('marks','!=',-1)->get();
         return view('result.personal')->with('answers',$answers);
     }
 
@@ -227,8 +344,13 @@ class ExamTakeController extends Controller
 
     public function resultBatch($id)
     {
-        $answers=Answer::where('exam_id',$id)->orderby('marks','DESC')->get();
+        $answers=Answer::where('exam_id',$id)
+            ->where('marks','!=',-1)
+            ->orderby('marks','DESC')->get();
         return view('result.batch')->with('answers',$answers);
     }
+
+
+
 
 }

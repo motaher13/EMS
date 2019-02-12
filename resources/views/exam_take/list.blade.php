@@ -26,7 +26,7 @@
                                         <table class="table table-striped table-hover">
                                             <tbody >
                                             @foreach($runningexams as $exam)
-                                                <tr class='clickable-row' data-href='{{route('exam.take',$exam->id)}}'>
+                                                <tr class='clickable-row' data-href='{{route('exam.password',$exam->id)}}'>
                                                     <td>
                                                         <div class="media">
                                                             <div class="media-body">

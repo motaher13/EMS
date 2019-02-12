@@ -93,15 +93,34 @@
 
             {{--</li>--}}
 
-
             @if(auth()->user()->hasRole('teacher'))
-                <li class="nav-item {!! Menu::isActiveRoute('course.create') !!}">
-                    <a href="{!! route('course.create') !!}" class="nav-link ">
+                <li class="nav-item {!! Menu::areActiveRoutes(['course.create','course.created']) !!}">
+                    <a href="#" class="nav-link nav-toggle">
                         <i class="icon-folder"></i>
-                        <span class="title">Create Course</span>
-
+                        <span class="title">Course</span>
+                        <span class="arrow"></span>
                     </a>
+                    <ul class="sub-menu">
+                        <li class="nav-item {!! Menu::isActiveRoute('course.create') !!}">
+                            <a href="{!! route('course.create') !!}" class="nav-link ">
+                                <i class="icon-folder"></i>
+                                <span class="title">Create</span>
+
+                            </a>
+                        </li>
+                        <li class="nav-item {!! Menu::isActiveRoute('course.created') !!}">
+                            <a href="{!! route('course.created') !!}" class="nav-link ">
+                                <i class="icon-folder"></i>
+                                <span class="title">List</span>
+                            </a>
+                        </li>
+                    </ul>
+
                 </li>
+
+
+
+
 
                 {{--<li class="nav-item {!! Menu::isActiveRoute('course.created') !!}">--}}
                     {{--<a href="{!! route('course.created') !!}" class="nav-link ">--}}
@@ -149,7 +168,7 @@
             @endif
 
             @if(auth()->user()->hasRole('student'))
-                <li class="nav-item {!! Menu::isActiveRoute('course.list') !!}">
+                <li class="nav-item {!! Menu::areActiveRoutes(['course.list','course.questions','question.show']) !!}">
                     <a href="{!! route('course.list') !!}" class="nav-link ">
                         <i class="icon-folder"></i>
                         <span class="title">Question Bank</span>
@@ -157,15 +176,15 @@
                     </a>
                 </li>
 
-                <li class="nav-item {!! Menu::isActiveRoute('exam.list') !!}">
-                    <a href="{!! route('exam.list') !!}" class="nav-link ">
+                <li class="nav-item {!! Menu::areActiveRoutes(['exam.course']) !!}">
+                    <a href="{!! route('exam.course') !!}" class="nav-link ">
                         <i class="icon-folder"></i>
                         <span class="title">Exams</span>
 
                     </a>
                 </li>
 
-                <li class="nav-item {!! Menu::isActiveRoute('result.examined') !!}">
+                <li class="nav-item {!! Menu::areActiveRoutes(['result.examined','result.batch','exam.sheetMarks']) !!}">
                     <a href="{!! route('result.examined') !!}" class="nav-link ">
                         <i class="icon-folder"></i>
                         <span class="title">Results</span>

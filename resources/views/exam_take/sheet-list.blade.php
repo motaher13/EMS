@@ -26,12 +26,11 @@
                                         <span class="caption-subject font-blue-madison bold uppercase">Exams</span>
                                     </div>
                                 </div>
-                                {{--<div class="col-md-6">--}}
-                                {{--<div class="btn-group pull-right" style="margin-left: 5px;">--}}
-                                {{--<a class="btn sbold green" id="sample_editable_1_new" href="{{ route('course.list') }}" >old Questions </a>--}}
-                                {{--</div>--}}
-
-                                {{--</div>--}}
+                                <div class="col-md-6">
+                                    <div class="btn-group pull-right" style="margin-left: 5px;">
+                                        <a class="btn sbold green" id="sample_editable_1_new" href="{{ route('exam.publish',$exam->id) }}" >Publish Result </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
@@ -43,21 +42,17 @@
                                     <div class="table-responsive">
                                         <table class="table table-striped table-hover">
                                             <tbody >
-                                            @if($answers->count()==0)
-                                                <div >
-                                                    <hr>
-                                                  <h1 style="font-size: 22px; font-weight: bold;">ALL answer papers has been examined.</h1>
-                                                </div>
-                                            @else
                                             @foreach($answers as $answer)
                                                 <tr class='clickable-row' data-href='{{route('exam.sheet',$answer->id)}}'>
                                                     <td>
                                                         <div class="media">
                                                             <div class="media-body">
-                                                                <span class="media-meta pull-right">{{$answer->student->id}}</span>
+                                                                {{--<span class="media-meta pull-right">{{$answer->student->id}}</span>--}}
                                                                 <h4 class="title">
                                                                     {{$answer->student->userinfo->reg_no}}
-                                                                    <span class="pull-right pagado">{{$answer->exam->course->course_code}}</span>
+                                                                    @if($answer->marks!=-1)
+                                                                    <span class="pull-right pagado">{{$answer->marks}}</span>
+                                                                    @endif
                                                                 </h4>
                                                                 <span class="media-meta pull-right">{{$answer->end}}</span>
                                                                 <p class="summary">{{$answer->exam->course->title}}</p>
@@ -66,7 +61,6 @@
                                                     </td>
                                                 </tr>
                                             @endforeach
-                                            @endif
                                             </tbody>
                                         </table>
                                     </div>

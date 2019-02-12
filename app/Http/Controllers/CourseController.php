@@ -29,6 +29,13 @@ class CourseController extends Controller
     }
 
 
+    public function edit($id)
+    {
+        $course=Course::find($id);
+        return view('course.edit')->with('course',$course);
+    }
+
+
 
 
     public function store(CourseRequest $request)
@@ -36,10 +43,21 @@ class CourseController extends Controller
 //        try{
             $course=$this->courseService->store($request);
 
-            return redirect()->route('dashboard.main');
+            return redirect()->route('course.created');
 //        }catch (\Exception $e){
 //            return redirect()->back()->withInput()->with('error','something went wrong. Try again.');
 //        }
+    }
+
+
+
+    public function update(Request $request,$id)
+    {
+        $data=$request->only(['title','course_code']);
+        $course = Course::find($id);
+        $course->update($data);
+
+        return redirect()->route('course.created')->with('success','Course updated Successfully.');
     }
 
 
@@ -63,13 +81,9 @@ class CourseController extends Controller
     public function delete($id)
     {
 
-        $status=$this->courseService->delete($id);
-        if($status){
-            return redirect()->route('course.basic')->with('success','Deletion Success');
-        }else{
+        Course::destroy($id);
+        return redirect()->route('course.created')->with('success','Course Deleted!');
 
-            return redirect()->back()->with('error','Something went wrong. Try again.');
-        }
 
     }
 

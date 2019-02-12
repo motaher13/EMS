@@ -52,17 +52,49 @@
                                                 </div>
                                             </div>
 
+
+
                                             <div class="form-group">
-                                                <label for="start" class="control-label col-sm-2">Start time</label>
+                                                <label for="session" class="control-label col-sm-2">Session</label>
                                                 <div class="col-sm-8">
-                                                    <input class="form-control" placeholder="Enter start" name="start" type="datetime-local"  id="start">
+                                                    <input class="form-control" value={{$exam->session}} name="session" type="text"  id="session">
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="end" class="control-label col-sm-2">End time</label>
+                                                <label for="password" class="control-label col-sm-2">Password</label>
                                                 <div class="col-sm-8">
-                                                    <input class="form-control" placeholder="Enter end" name="end" type="datetime-local"  id="end">
+                                                    <input class="form-control" value={{$exam->password}} name="password" type="text"  id="password">
+                                                </div>
+                                            </div>
+
+
+
+                                            <div class="form-group">
+                                                <label for="start" class="control-label col-sm-2">Start time</label>
+                                                <div class='col-sm-8'>
+                                                    <div class='input-group date datetimepicker'>
+                                                        <input class="form-control" value={{$exam->start}} name="start" type='text'  id="start">
+                                                        <span class="input-group-addon">
+                                                                <span class="glyphicon glyphicon-calendar"></span>
+                                                            </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+
+
+                                            <div class="form-group">
+                                                <label for="start" class="control-label col-sm-2">End time</label>
+                                                <div class='col-sm-8'>
+                                                    <div class='input-group date datetimepicker'>
+                                                        <input class="form-control" value={{$exam->end}} name="end" type='text'  id="end">
+                                                        <span class="input-group-addon">
+                                                                <span class="glyphicon glyphicon-calendar"></span>
+                                                            </span>
+                                                    </div>
                                                 </div>
                                             </div>
 
@@ -88,4 +120,21 @@
     </div>
 
 
+@endsection
+
+
+@section('scripts')
+    <script type="text/javascript" src="{!! asset('assets/global/plugins/moment.min.js') !!}"></script>
+    <script type="text/javascript" src="{!! asset('assets/global/plugins/bootstrap/bootstrap-3.3.7/js/transition.js') !!}"></script>
+    <script type="text/javascript" src="{!! asset('assets/global/plugins/bootstrap/bootstrap-3.3.7/js/collapse.js') !!}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>
+
+    <script>
+        $(function() {
+            $('.datetimepicker').datetimepicker();
+        });
+    </script>
+@endsection
+@section('styles')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
 @endsection

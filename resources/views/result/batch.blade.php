@@ -54,7 +54,7 @@
                                             <?php $i=0;?>
                                             @foreach($answers as $answer)
                                                 <?php $i++?>
-                                                <tr class='clickable-row' >
+                                                <tr class='clickable-row' data-href='{{route('exam.sheetMarks',$answer->id)}}'>
                                                     <td><h4>{{$i}}</h4></td>
                                                     <td><h4>{{$answer->student->username}}</h4></td>
                                                     <td><h4>{{$answer->student->userinfo->reg_no}}</h4></td>
@@ -90,6 +90,17 @@
         <!-- END PROFILE CONTENT -->
 
 @endsection
+
+        @section('scripts')
+            <script>
+                $( document ).ready(function() {
+                    $(".clickable-row").click(function() {
+                        window.location = $(this).data("href");
+                    });
+                });
+
+            </script>
+        @endsection
 
 @section('styles')
     <style>

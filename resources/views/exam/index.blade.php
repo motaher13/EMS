@@ -24,7 +24,7 @@
 
     @endif
 
-    <div class="row">
+    <div class="row" style="width: 95%;margin:auto;">
         <div class="col-md-12">
             <div class="portlet light bordered">
 
