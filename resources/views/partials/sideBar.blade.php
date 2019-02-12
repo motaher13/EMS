@@ -176,7 +176,7 @@
                     </a>
                 </li>
 
-                <li class="nav-item {!! Menu::areActiveRoutes(['exam.course']) !!}">
+                <li class="nav-item {!! Menu::areActiveRoutes(['exam.course','exam.list-list','exam.password','exam.take']) !!}">
                     <a href="{!! route('exam.course') !!}" class="nav-link ">
                         <i class="icon-folder"></i>
                         <span class="title">Exams</span>
