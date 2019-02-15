@@ -119,7 +119,7 @@ Route::group(['middleware' => ['role:student|teacher']],function (){
 
     Route::get('result/examined',['as'=>'result.examined','uses'=>'ExamTakeController@resultExamined']);
     Route::get('result/batch/{id}',['as'=>'result.batch','uses'=>'ExamTakeController@resultBatch']);
-
+    Route::get('exam/sheet/marks/{id}',['as'=>'exam.sheetMarks','uses'=>'ExamTakeController@showSheetMarks']);
 
 });
 
@@ -143,7 +143,7 @@ Route::group(['middleware' => ['role:student']],function (){
 //    })->name('exam.course');
 
     Route::get('result/personal',['as'=>'result.personal','uses'=>'ExamTakeController@resultPersonal']);
-    Route::get('exam/sheet/marks/{id}',['as'=>'exam.sheetMarks','uses'=>'ExamTakeController@showSheetMarks']);
+
 
 });
 

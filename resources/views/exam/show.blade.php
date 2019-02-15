@@ -55,16 +55,16 @@
                                                 <p class="pull-right" style="margin-right: 30px;">marks:{{$mcqq->marks}}</p>
                                                 <p style="margin-bottom: 0px;">{{$i}}. {{$mcqq->question}}</p>
                                                 <div class="radio">
-                                                    <label><input type="radio" value="a" name="{{$mcqq->id}}" {{($mcqq->answer=='a')? "checked":"" }}>Option A</label>
+                                                    <label><input type="radio" value="a" name="{{$mcqq->id}}" {{($mcqq->answer=='a')? "checked":"" }}>{{$mcqq->option_a}}</label>
                                                 </div>
                                                 <div class="radio">
-                                                    <label><input type="radio" value="b" name="{{$mcqq->id}}" {{($mcqq->answer=='b')? "checked":"" }}>Option B</label>
+                                                    <label><input type="radio" value="b" name="{{$mcqq->id}}" {{($mcqq->answer=='b')? "checked":"" }}>{{$mcqq->option_b}}</label>
                                                 </div>
                                                 <div class="radio disabled">
-                                                    <label><input type="radio" value="c" name="{{$mcqq->id}}" {{($mcqq->answer=='c')? "checked":"" }}>Option C</label>
+                                                    <label><input type="radio" value="c" name="{{$mcqq->id}}" {{($mcqq->answer=='c')? "checked":"" }}>{{$mcqq->option_c}}</label>
                                                 </div>
                                                 <div class="radio disabled" style="margin-bottom: 30px;">
-                                                    <label><input type="radio" value="d" name="{{$mcqq->id}}" {{($mcqq->answer=='d')? "checked":"" }}>Option D</label>
+                                                    <label><input type="radio" value="d" name="{{$mcqq->id}}" {{($mcqq->answer=='d')? "checked":"" }}>{{$mcqq->option_d}}</label>
                                                 </div>
                                             </div>
                                         @endforeach
