@@ -20,7 +20,9 @@ class QuestionController extends Controller
     public function list($course_code)
     {
         $courses=Course::where('course_code',$course_code)->pluck('id');
-        $exams=Exam::whereIn('course_id',$courses)->get();
+        $exams=Exam::whereIn('course_id',$courses)
+                ->where('end','<',date("Y-m-d H:i:s"))
+                ->get();
         return view('question.list')->with('exams',$exams);
     }
 

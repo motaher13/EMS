@@ -108,7 +108,7 @@ class ExamTakeController extends Controller
                 $mcqa=WrittenA::create($dta);
             }
         }
-        return redirect()->route('exam.list-list',$answer->exam_id);
+        return redirect()->route('exam.list-list',$answer->exam->course_id);
     }
 
 

@@ -46,7 +46,7 @@
                                         @foreach($mcqas as $mcqa)
                                             <?php $i++ ?>
                                             <div >
-
+                                                <p class="pull-right" style="margin-right: 30px;">marks:{{$mcqa->mcqq->marks}}</p>
                                                 <p style="font-size: 18px;font-weight: bold;line-height: normal;margin: 0;">{{$i}}. {{$mcqa->mcqq->question}}</p>
                                                 <div class="radio">
                                                     <label><input disabled type="radio" value="a" {{($mcqa->answer=='a')? "checked":"" }}>{{$mcqa->mcqq->option_a}}</label>

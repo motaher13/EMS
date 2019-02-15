@@ -50,16 +50,16 @@
                                                 <p class="pull-right" style="margin-right: 30px;">marks:{{$mcqq->marks}}</p>
                                                 <p style="margin-bottom: 0px;">{{$i}}. {{$mcqq->question}}</p>
                                                 <div class="radio">
-                                                    <label><input type="radio" value="a" name="{{$mcqq->id}}" >Option A</label>
+                                                    <label><input disabled type="radio" value="a" {{($mcqq->answer=='a')? "checked":"" }} name="{{$mcqq->id}}" >{{$mcqq->option_a}}</label>
                                                 </div>
                                                 <div class="radio">
-                                                    <label><input type="radio" value="b" name="{{$mcqq->id}}" >Option B</label>
+                                                    <label><input disabled type="radio" value="b" {{($mcqq->answer=='b')? "checked":"" }} name="{{$mcqq->id}}" >{{$mcqq->option_b}}</label>
                                                 </div>
-                                                <div class="radio disabled">
-                                                    <label><input type="radio" value="c" name="{{$mcqq->id}}" >Option C</label>
+                                                <div class="radio ">
+                                                    <label><input disabled type="radio" value="c" {{($mcqq->answer=='c')? "checked":"" }} name="{{$mcqq->id}}" >{{$mcqq->option_c}}</label>
                                                 </div>
-                                                <div class="radio disabled" style="margin-bottom: 30px;">
-                                                    <label><input type="radio" value="d" name="{{$mcqq->id}}" >Option D</label>
+                                                <div class="radio " style="margin-bottom: 30px;">
+                                                    <label><input disabled type="radio" value="d" {{($mcqq->answer=='d')? "checked":"" }} name="{{$mcqq->id}}" >{{$mcqq->option_d}}</label>
                                                 </div>
                                             </div>
                                         @endforeach

@@ -48,7 +48,7 @@
                                                     <td>
                                                         <div class="media">
                                                             <div class="media-body">
-                                                                <span class="media-meta pull-right">Febrero 13, 2016</span>
+                                                                {{--<span class="media-meta pull-right">Febrero 13, 2016</span>--}}
                                                                 <h4 class="title">
                                                                     {{$course->title}}
                                                                     <span class="pull-right pagado">{{$course->teacher->username}}</span>
