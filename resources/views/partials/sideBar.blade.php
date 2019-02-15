@@ -22,7 +22,7 @@
             </li>
             <!-- END SIDEBAR TOGGLER BUTTON -->
 
-            <li class="nav-item {!! Menu::isActiveRoute('dashboard.main') !!}">
+            <li class="nav-item {!! Menu::areActiveRoutes(['dashboard.main','post.selected']) !!}">
                 <a href="{!! route('dashboard.main') !!}" class="nav-link ">
                     <i class="icon-home"></i>
                     <span class="title">Dashboard</span>
