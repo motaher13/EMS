@@ -822,83 +822,83 @@
 <!-- ##### Footer Area Start ##### -->
 <footer class="footer-area">
     <!-- Main Footer Area -->
-    <div class="main-footer-area section-padding-100-0">
-        <div class="container">
-            <div class="row">
-                <!-- Single Footer Widget -->
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="single-footer-widget mb-70 wow fadeInUp" data-wow-delay="100ms">
-                        <div class="widget-title">
-                            <h4>Exam Room</h4>
-                        </div>
-                        <div class="widget-content">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris velit arcu, scelerisque dignissim massa quis, mattis facilisis erat. Aliquam erat volutpat. Sed efficitur diam ut interdum ultricies.</p>
-                        </div>
-                    </div>
-                </div>
+    {{--<div class="main-footer-area section-padding-100-0">--}}
+        {{--<div class="container">--}}
+            {{--<div class="row">--}}
+                {{--<!-- Single Footer Widget -->--}}
+                {{--<div class="col-12 col-sm-6 col-lg-3">--}}
+                    {{--<div class="single-footer-widget mb-70 wow fadeInUp" data-wow-delay="100ms">--}}
+                        {{--<div class="widget-title">--}}
+                            {{--<h4>Exam Room</h4>--}}
+                        {{--</div>--}}
+                        {{--<div class="widget-content">--}}
+                            {{--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris velit arcu, scelerisque dignissim massa quis, mattis facilisis erat. Aliquam erat volutpat. Sed efficitur diam ut interdum ultricies.</p>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
 
-                <!-- Single Footer Widget -->
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="single-footer-widget mb-70 wow fadeInUp" data-wow-delay="300ms">
-                        <div class="widget-title">
-                            <h4>Exam Reviews</h4>
-                        </div>
-                        <div class="widget-content">
-                            <nav>
-                                <ul>
-                                    <li><a href="#">Doom</a></li>
-                                    <li><a href="#">Grand Theft Auto</a></li>
-                                    <li><a href="#">Bloodborne</a></li>
-                                    <li><a href="#">God of war</a></li>
-                                    <li><a href="#">Persona 5</a></li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
+                {{--<!-- Single Footer Widget -->--}}
+                {{--<div class="col-12 col-sm-6 col-lg-3">--}}
+                    {{--<div class="single-footer-widget mb-70 wow fadeInUp" data-wow-delay="300ms">--}}
+                        {{--<div class="widget-title">--}}
+                            {{--<h4>Exam Reviews</h4>--}}
+                        {{--</div>--}}
+                        {{--<div class="widget-content">--}}
+                            {{--<nav>--}}
+                                {{--<ul>--}}
+                                    {{--<li><a href="#">Doom</a></li>--}}
+                                    {{--<li><a href="#">Grand Theft Auto</a></li>--}}
+                                    {{--<li><a href="#">Bloodborne</a></li>--}}
+                                    {{--<li><a href="#">God of war</a></li>--}}
+                                    {{--<li><a href="#">Persona 5</a></li>--}}
+                                {{--</ul>--}}
+                            {{--</nav>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
 
-                <!-- Single Footer Widget -->
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="single-footer-widget mb-70 wow fadeInUp" data-wow-delay="500ms">
-                        <div class="widget-title">
-                            <h4>Usefull Links</h4>
-                        </div>
-                        <div class="widget-content">
-                            <nav>
-                                <ul>
-                                    <li><a href="#">Testimanials</a></li>
-                                    <li><a href="#">Reviews</a></li>
-                                    <li><a href="#">New Games</a></li>
-                                    <li><a href="#">Forum</a></li>
-                                    <li><a href="#">Contact</a></li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
+                {{--<!-- Single Footer Widget -->--}}
+                {{--<div class="col-12 col-sm-6 col-lg-3">--}}
+                    {{--<div class="single-footer-widget mb-70 wow fadeInUp" data-wow-delay="500ms">--}}
+                        {{--<div class="widget-title">--}}
+                            {{--<h4>Usefull Links</h4>--}}
+                        {{--</div>--}}
+                        {{--<div class="widget-content">--}}
+                            {{--<nav>--}}
+                                {{--<ul>--}}
+                                    {{--<li><a href="#">Testimanials</a></li>--}}
+                                    {{--<li><a href="#">Reviews</a></li>--}}
+                                    {{--<li><a href="#">New Games</a></li>--}}
+                                    {{--<li><a href="#">Forum</a></li>--}}
+                                    {{--<li><a href="#">Contact</a></li>--}}
+                                {{--</ul>--}}
+                            {{--</nav>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
 
-                <!-- Single Footer Widget -->
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="single-footer-widget mb-70 wow fadeInUp" data-wow-delay="700ms">
-                        <div class="widget-title">
-                            <h4>What’s new</h4>
-                        </div>
-                        <div class="widget-content">
-                            <nav>
-                                <ul>
-                                    <li><a href="#">Doom</a></li>
-                                    <li><a href="#">Grand Theft Auto</a></li>
-                                    <li><a href="#">Bloodborne</a></li>
-                                    <li><a href="#">God of war</a></li>
-                                    <li><a href="#">Persona 5</a></li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                {{--<!-- Single Footer Widget -->--}}
+                {{--<div class="col-12 col-sm-6 col-lg-3">--}}
+                    {{--<div class="single-footer-widget mb-70 wow fadeInUp" data-wow-delay="700ms">--}}
+                        {{--<div class="widget-title">--}}
+                            {{--<h4>What’s new</h4>--}}
+                        {{--</div>--}}
+                        {{--<div class="widget-content">--}}
+                            {{--<nav>--}}
+                                {{--<ul>--}}
+                                    {{--<li><a href="#">Doom</a></li>--}}
+                                    {{--<li><a href="#">Grand Theft Auto</a></li>--}}
+                                    {{--<li><a href="#">Bloodborne</a></li>--}}
+                                    {{--<li><a href="#">God of war</a></li>--}}
+                                    {{--<li><a href="#">Persona 5</a></li>--}}
+                                {{--</ul>--}}
+                            {{--</nav>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--</div>--}}
+    {{--</div>--}}
 
     <!-- Copywrite Area -->
     <div class="copywrite-content">
