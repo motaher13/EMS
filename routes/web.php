@@ -12,6 +12,7 @@
 */
 
 Route::get('/',['as'=>'home','uses'=>'Dashboard\MainDashboardController@home']);
+Route::get('/posts/{id}',['as'=>'post.selected','uses'=>'Dashboard\MainDashboardController@selected']);
 // Password Reset Routes...
 Route::post('password/email', ['as' => 'password.email', 'uses' => 'Auth\ForgotPasswordController@sendResetLinkEmail']);
 Route::get('password/reset', ['as' => 'password.request', 'uses' => 'Auth\ResetPasswordController@showLinkRequestForm']);
@@ -106,8 +107,10 @@ Route::group(['middleware' => ['role:teacher']],function (){
     Route::post('post/create',['as'=>'post.create','uses'=>'PostController@store']);
     Route::get('post/created',['as'=>'post.created','uses'=>'PostController@showCreated']);
     Route::get('post/show/{id}',['as'=>'post.show','uses'=>'PostController@show']);
-    
-    
+    Route::get('post/edit/{id}',['as'=>'post.edit','uses'=>'PostController@edit']);
+    Route::post('post/update/{id}',['as'=>'post.update','uses'=>'PostController@update']);
+    Route::get('post/delete/{id}',['as'=>'post.delete','uses'=>'PostController@delete']);
+
     
 });
 

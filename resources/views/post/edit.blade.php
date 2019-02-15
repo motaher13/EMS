@@ -12,7 +12,7 @@
                         <div class="portlet-title tabbable-line">
                             <div class="caption caption-md">
                                 <i class="icon-globe theme-font hide"></i>
-                                <span class="caption-subject font-blue-madison bold uppercase">Create Post</span>
+                                <span class="caption-subject font-blue-madison bold uppercase">Update Post</span>
                             </div>
 
                         </div>
@@ -22,7 +22,7 @@
                                 <div class="tab-pane active">
 
                                     <div class="container" style="margin-top: 20px; display: inline;">
-                                        <form method="POST" id="updateProfile" action="{{route('post.create')}}"accept-charset="UTF-8" class="cmxform form-horizontal tasi-form" enctype="multipart/form-data">
+                                        <form method="POST" id="updateProfile" action="{{route('post.update',$post->id)}}"accept-charset="UTF-8" class="cmxform form-horizontal tasi-form" enctype="multipart/form-data">
                                             {{ csrf_field() }}
 
 
@@ -30,9 +30,9 @@
                                                 <label for="course_code" class="control-label col-sm-2">Course Code</label>
                                                 <div class="col-sm-8">
                                                     <select name="course_id" id="course"  class=" form-control">
-                                                        <option selected disabled hidden>Choose Course</option>
+                                                        {{--<option selected disabled hidden>Choose Course</option>--}}
                                                         @foreach($courses as $course)
-                                                            <option value={{$course->id}} >{{$course->course_code}}</option>
+                                                            <option value="{{$course->id}}" {{($post->course_id==$course->id)? "selected":"" }}>{{$course->course_code}}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
@@ -41,7 +41,7 @@
                                             <div class="form-group">
                                                 <label for="title" class="control-label col-sm-2">Type</label>
                                                 <div class="col-sm-8">
-                                                    <input class="form-control" placeholder="Enter type" name="type" type="text"  id="type">
+                                                    <input class="form-control" value="{{$post->type}}" name="type" type="text"  id="type">
                                                 </div>
                                             </div>
 
@@ -49,8 +49,8 @@
 
                                             <div class="form-group">
                                                 <label for="post" class="control-label col-sm-2">Post</label>
-                                                <div class="col-sm-8">
-                                                    <textarea class="ckeditor" name="post"></textarea>
+                                                <div class="col-sm-8" >
+                                                    <textarea class="ckeditor"  name="post">{{$post->post}}</textarea>
                                                 </div>
                                             </div>
 

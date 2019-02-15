@@ -20,12 +20,19 @@
                                         <span class="caption-subject font-blue-madison bold uppercase">Recent Posts</span>
                                     </div>
                                 </div>
-                                {{--<div class="col-md-6">--}}
-                                {{--<div class="btn-group pull-right" style="margin-left: 5px;">--}}
-                                {{--<a class="btn sbold green" id="sample_editable_1_new" href="{{ route('course.list') }}" >old Questions </a>--}}
-                                {{--</div>--}}
+                                <div class="col-md-6">
+                                    <div class="pull-right" style="margin-left: 5px;">
+                                        <select name="course_id" id="course_id"  class=" form-control" onChange="window.location.href=this.value">
+                                            @if(count($courses))
+                                                <option selected disabled hidden> Select Course</option>
+                                                @foreach($courses as $course )
+                                                    <option <?php if($course->id==$id){?> selected="selected"<?php } ?>value={{route('post.selected',$course->id)}} >{{$course->course_code}}</option>
+                                                @endforeach
+                                            @endif
+                                        </select>
+                                    </div>
 
-                                {{--</div>--}}
+                                </div>
                             </div>
                         </div>
 
@@ -38,28 +45,22 @@
                                         <table class="table table-striped">
                                             <tbody >
                                             @foreach($posts as $post)
-                                            <tr class='clickable-row' data-href='#'>
-                                                <td>
-                                                    <div class="media">
-                                                        <div class="media-body">
-                                                            <div class="btn-group pull-right" style="margin-left: 5px;">
-                                                                <a class="btn sbold green btn-xs" href="{{ route('post.delete',$post->id) }}" >Delete </a>
-                                                            </div>
-                                                            <div class="btn-group pull-right" style="margin-left: 5px;">
-                                                                <a class="btn sbold green btn-xs" href="{{ route('post.edit',$post->id) }}" >Edit </a>
-                                                            </div>
-                                                            <h4 class="title">
-                                                                {{$post->user->username}}
-                                                                <span class="pull-right pagado">{{$post->course->course_code}}</span>
-                                                            </h4>
-                                                            <p class="summary">{{$post->type}}</p>
-                                                            <div style="width: 800px;">
-                                                                {!! $post->post !!}
+                                                <tr class='clickable-row' data-href='#'>
+                                                    <td>
+                                                        <div class="media">
+                                                            <div class="media-body">
+                                                                <h4 class="title">
+                                                                    {{$post->user->username}}
+                                                                    <span class="pull-right pagado">{{$post->course->course_code}}</span>
+                                                                </h4>
+                                                                <p class="summary">{{$post->type}}</p>
+                                                                <div style="width: 800px;">
+                                                                    {!! $post->post !!}
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                                    </td>
+                                                </tr>
                                             @endforeach
 
                                             </tbody>

@@ -123,7 +123,7 @@
 
 
 
-                <li class="nav-item {!! Menu::areActiveRoutes(['post.create','post.created']) !!}">
+                <li class="nav-item {!! Menu::areActiveRoutes(['post.create','post.created','post.edit']) !!}">
                     <a href="#" class="nav-link nav-toggle">
                         <i class="icon-folder"></i>
                         <span class="title">post</span>
