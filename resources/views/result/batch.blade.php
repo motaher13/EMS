@@ -48,17 +48,19 @@
                                                 <th >Name</th>
                                                 <th >Registration No</th>
                                                 <th >Marks</th>
+                                                <th></th>
                                             </tr>
                                             </thead>
                                             <tbody >
                                             <?php $i=0;?>
                                             @foreach($answers as $answer)
                                                 <?php $i++?>
-                                                <tr class='clickable-row' data-href='{{route('exam.sheetMarks',$answer->id)}}'>
+                                                <tr class='clickable-row' data-href='#'>
                                                     <td><h4>{{$i}}</h4></td>
                                                     <td><h4>{{$answer->student->username}}</h4></td>
                                                     <td><h4>{{$answer->student->userinfo->reg_no}}</h4></td>
                                                     <td><h4>{{$answer->marks}}</h4></td>
+                                                    <td><a class="btn sbold green btn-xs" href="{{ route('exam.sheetMarks',$answer->id) }}" >View Answer </a></td>
                                                     {{--<td>--}}
                                                         {{--<div class="media">--}}
                                                             {{--<div class="media-body">--}}
@@ -93,11 +95,11 @@
 
         @section('scripts')
             <script>
-                $( document ).ready(function() {
-                    $(".clickable-row").click(function() {
-                        window.location = $(this).data("href");
-                    });
-                });
+                // $( document ).ready(function() {
+                //     $(".clickable-row").click(function() {
+                //         window.location = $(this).data("href");
+                //     });
+                // });
 
             </script>
         @endsection

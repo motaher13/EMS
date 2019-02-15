@@ -48,17 +48,17 @@
                                             <div >
 
                                                 <p style="font-size: 18px;font-weight: bold;line-height: normal;margin: 0;">{{$i}}. {{$mcqa->mcqq->question}}</p>
-                                                <div class="radio">
-                                                    <label><input type="radio" value="a" {{($mcqa->answer=='a')? "checked":"" }}>{{$mcqa->mcqq->option_a}}</label>
+                                                <div class="radio" style="background-color:{{($mcqa->mcqq->answer=='a')? "#b8edab":"" }} ">
+                                                    <label><input disabled type="radio" value="a" {{($mcqa->answer=='a')? "checked":"" }}>{{$mcqa->mcqq->option_a}}</label>
                                                 </div>
-                                                <div class="radio">
-                                                    <label><input type="radio" value="b" {{($mcqa->answer=='b')? "checked":"" }}>{{$mcqa->mcqq->option_b}}</label>
+                                                <div class="radio" style="background-color:{{($mcqa->mcqq->answer=='b')? "#b8edab":"" }} ">
+                                                    <label><input disabled type="radio" value="b" {{($mcqa->answer=='b')? "checked":"" }}>{{$mcqa->mcqq->option_b}}</label>
                                                 </div>
-                                                <div class="radio disabled">
-                                                    <label><input type="radio" value="c" {{($mcqa->answer=='c')? "checked":"" }}>{{$mcqa->mcqq->option_c}}</label>
+                                                <div class="radio" style="background-color:{{($mcqa->mcqq->answer=='c')? "#b8edab":"" }} ">
+                                                    <label><input disabled type="radio" value="c" {{($mcqa->answer=='c')? "checked":"" }}>{{$mcqa->mcqq->option_c}}</label>
                                                 </div>
-                                                <div class="radio disabled" style="margin-bottom: 30px;">
-                                                    <label><input type="radio" value="d" {{($mcqa->answer=='d')? "checked":"" }}>{{$mcqa->mcqq->option_d}}</label>
+                                                <div class="radio" style="margin-bottom: 30px; background-color:{{($mcqa->mcqq->answer=='d')? "#b8edab":"" }}">
+                                                    <label><input disabled type="radio" value="d" {{($mcqa->answer=='d')? "checked":"" }}>{{$mcqa->mcqq->option_d}}</label>
                                                 </div>
                                             </div>
                                         @endforeach
