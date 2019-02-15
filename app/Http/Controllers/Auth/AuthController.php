@@ -43,6 +43,16 @@ class AuthController extends Controller
         return view('auth.login');
     }
 
+
+    public function loginCheck()
+    {
+        if (auth()->check())
+            return redirect()->route('dashboard.main');
+
+        else
+            return redirect()->route('login');
+    }
+
     public function doLogin(UserLogin $request)
     {
         $this->validateLogin($request);

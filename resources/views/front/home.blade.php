@@ -150,7 +150,7 @@
                     </div>
                 </div>
             </div>
-            <button class="owl-next" style="border: 0px;"><a href="{{route('login')}}">Enter</a> </button>
+            <button class="owl-next" style="border: 0px;"><a href="{{route('login.check')}}">Enter</a> </button>
         </div>
 
 

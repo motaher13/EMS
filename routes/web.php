@@ -18,6 +18,8 @@ Route::post('password/email', ['as' => 'password.email', 'uses' => 'Auth\ForgotP
 Route::get('password/reset', ['as' => 'password.request', 'uses' => 'Auth\ResetPasswordController@showLinkRequestForm']);
 Route::post('password/reset', ['as' => '', 'uses' => 'Auth\ResetPasswordController@reset']);
 Route::get('password/reset/{token}', ['as' => 'password.reset', 'uses' => 'Auth\ResetPasswordController@showResetForm']);
+
+Route::get('login/check', ['as' => 'login.check', 'uses' => 'Auth\AuthController@loginCheck']);
 // Guest Routes
 Route::group(['namespace' => 'Auth','middleware' => ['guest']],function (){
     //login

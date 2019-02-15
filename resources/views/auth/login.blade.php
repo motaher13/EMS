@@ -59,7 +59,7 @@
 
     <form action="{!! route('web.do.login') !!}" method="POST" id="login-form">
         {!! csrf_field() !!}
-        <h3 class="form-title font-green">Sign In to {!! \App\BaseSettings\Settings::$company_name !!}</h3>
+        <a style="text-decoration: none" href="{{route('home')}}"><h3 class="form-title font-green">Sign In to {!! \App\BaseSettings\Settings::$company_name !!}</h3></a>
         <div class="form-group">
             <label for="email" class="control-label"></label>
             <input type="text" name="email" class="form-control form-control-solid" value="{!! old('email') !!}" placeholder="Email-Address"  required/>
@@ -70,7 +70,7 @@
         </div>
         <div class="form-actions">
             <input type="submit" name="submit" class="btn green uppercase" value="Login"/>
-            <a href="javascript:;" id="forget-password" class="forget-password">Forgot Password?</a>
+            {{--<a href="javascript:;" id="forget-password" class="forget-password">Forgot Password?</a>--}}
 
             <p style="margin-bottom: 0px;">Don't have an account? <a href="{{route('web.register')}}">Register</a></p>
         </div>
