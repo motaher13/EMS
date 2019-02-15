@@ -19,7 +19,7 @@ class MainDashboardController extends Controller
 
     public function dashboard()
     {
-        $posts=Post::all();
+        $posts=Post::orderby('created_at','DESC')->get();
         $courses=Course::all();
         $id=-1;
         return view('admin.dashboard.all-post')->with('posts',$posts)->with('courses',$courses)->with('id',$id);
@@ -31,7 +31,7 @@ class MainDashboardController extends Controller
     {
 
 
-        $posts=Post::where('course_id',$id)->get();
+        $posts=Post::where('course_id',$id)->orderby('created_at','DESC')->get();
 //        return $posts;
         $courses=Course::all();
         return view('admin.dashboard.all-post')->with('posts',$posts)->with('courses',$courses)->with('id',$id);

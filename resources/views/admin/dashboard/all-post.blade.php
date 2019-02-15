@@ -24,7 +24,7 @@
                                     <div class="pull-right" style="margin-left: 5px;">
                                         <select name="course_id" id="course_id"  class=" form-control" onChange="window.location.href=this.value">
                                             @if(count($courses))
-                                                <option selected disabled hidden> Select Course</option>
+                                                <option selected value={{route('dashboard.main')}}> All Post</option>
                                                 @foreach($courses as $course )
                                                     <option <?php if($course->id==$id){?> selected="selected"<?php } ?>value={{route('post.selected',$course->id)}} >{{$course->course_code}}</option>
                                                 @endforeach
@@ -96,6 +96,9 @@
 @section('styles')
 
     <style>
+        .media{
+            margin-bottom: 60px;
+        }
         .media-meta {
             font-size: 11px;
             color: #999;
