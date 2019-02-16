@@ -116,7 +116,7 @@ class AuthController extends Controller
 
                 if ($userInfo){
                     Auth::login($user);
-                    return redirect()->route('home');
+                    return redirect()->route('dashboard.main');
                 }
             }
         }catch (\Exception $exception){

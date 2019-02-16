@@ -60,7 +60,7 @@
 <!-- BEGIN LOGIN -->
 <div class="content overlay">
     <!-- END LOGIN FORM -->
-    <a action="{!! route('web.do.register') !!}" method="POST">
+    <form action="{!! route('web.do.register') !!}" method="POST">
         {!! csrf_field() !!}
         <a style="text-decoration: none" href="{{route('home')}}"><h3 class="font-green">Sign Up</h3></a>
         <p class="hint"> Enter your account details below: </p>
